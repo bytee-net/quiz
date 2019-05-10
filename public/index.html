@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>vue-quiz</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but vue-quiz doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>vue-quiz</title>
+  <script>
+  // Sample Quiz
+  window.Quiz = {
+    // Title heading of the quiz
+    title: 'LPIC-1 Exam 101 Quiz',
+    // Description of the quiz
+    description: 'The LPIC-1 certification of the Linux Professional Institute requires passing the exams 101 and 102. This Quiz contains 25 questions focused on the 101 Exam topics, which you have to answer in 30 Minutes.',
+    // Duration in minutes
+    duration: 30,
+    // Link to a JSON file or API server
+    questionsApi: '/sample-questions-lpic101.json',
+  };
+  </script>
+</head>
+<body>
+<noscript>
+  <strong>We're sorry but vue-quiz doesn't work properly without JavaScript enabled. Please enable
+    it to continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
 </html>

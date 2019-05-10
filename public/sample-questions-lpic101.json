@@ -1,0 +1,375 @@
+[
+  {
+    "title": "Which parameter do you add to `ls` to view also hidden files?",
+    "kind": "single",
+    "resolution": [
+      3
+    ],
+    "answers": [
+      {
+        "content": "-h",
+        "explanation": "ls -lh shows the size values in **h**uman readable format."
+      },
+      {
+        "content": "-l",
+        "explanation": "ls -l is the list view."
+      },
+      {
+        "content": "-r",
+        "explanation": "ls -r reversely orders the output (DESC)."
+      },
+      {
+        "content": "-a",
+        "explanation": "ls -a shows hidden files starting with a dot."
+      }
+    ]
+  },
+  {
+    "kind": "single",
+    "answers": [
+      {
+        "content": "-b",
+        "explanation": "-b is the bus centric view"
+      },
+      {
+        "content": "-v",
+        "explanation": "Verbose displays more detailed information about the devices."
+      },
+      {
+        "content": "-t",
+        "explanation": "Tree-like diagram view."
+      },
+      {
+        "content": "-k",
+        "explanation": "Show kernel drivers handling the device and modules capable of handling it."
+      },
+      {
+        "content": "-s",
+        "explanation": "Selection of devices."
+      }
+    ],
+    "title": "Which parameter allows you to filter for devices (PCI-Bus) with lspci?",
+    "category": "LPIC 101",
+    "tags": "hardware",
+    "difficulty": "4",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "How do you obtain the ip address of an network adapter in Linux?",
+    "kind": "single",
+    "resolution": [
+      0
+    ],
+    "answers": [
+      {
+        "content": "ip address",
+        "explanation": "`ip address` or `ip a` is the correct answer."
+      },
+      {
+        "content": "ipconfig",
+        "explanation": "`ipconfig` is a windows command."
+      },
+      {
+        "content": "route",
+        "explanation": "With `route` you can change or look at the IP routing table."
+      },
+      {
+        "content": "arp",
+        "explanation": "`arp` displays / manipulates the IPv4 neighbour cache. (Address resolution protocol)"
+      },
+      {
+        "content": "lsof -i",
+        "explanation": "`lsof -i` lists files / processes with open ports."
+      }
+    ]
+  },
+  {
+    "title": "Which tools can be used to change the nice value of a running process?",
+    "kind": "multiple",
+    "resolution": [
+      2,
+      3
+    ],
+    "answers": [
+      {
+        "content": "nice",
+        "explanation": "With nice you can set the nice value before running the application. `nice [OPTION] [COMMAND]`"
+      },
+      {
+        "content": "ps",
+        "explanation": "ps lists the running processes."
+      },
+      {
+        "content": "renice",
+        "explanation": "Correct! `renice -10 -p 123` would change the nice value of a running process with the PID 123 to -10."
+      },
+      {
+        "content": "top",
+        "explanation": "Correct! `top` allows you to change the nice value too."
+      },
+      {
+        "content": "netstat",
+        "explanation": "`netstat` shows you open ports, sockets and connections etc."
+      }
+    ]
+  },
+  {
+    "title": "Which file contains information on the CPU(s) and it's bugs? (Full path + file)",
+    "kind": "text",
+    "resolution": [
+      "/proc/cpuinfo"
+    ],
+    "explanation": "`/proc/cpuinfo` contains information about the CPU(s) and lists known bugs, like Meltdown and Spectre.",
+    "answers": []
+  },
+  {
+    "title": "Which command generates the following output? (No parameters)",
+    "explanation": "lsusb lists the USB devices connected to the computer.",
+    "kind": "text",
+    "difficulty": "3",
+    "answers": [
+      "lsusb"
+    ],
+    "code_block": "Bus 008 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub\nBus 007 Device 005: ID 1532:005c Razer USA, Ltd Razer DeathAdder Elite Mouse\nBus 007 Device 004: ID 0fd9:0060 Elgato Systems GmbH Stream Deck\nBus 007 Device 003: ID 1038:1724 SteelSeries ApS SteelSeries Rival 600\nBus 007 Device 002: ID 04b3:3025 IBM Corp. NetVista Full Width Keyboard",
+    "category": "LPIC 101",
+    "tags": "Hardware",
+    "resolution": [
+      "lsusb"
+    ]
+  },
+  {
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "modprobe -r",
+        "explanation": "With modprobe -r you unload a module."
+      },
+      {
+        "content": "insmod",
+        "explanation": "insmod loads a module without it\"s dependencies. You probably want to use modprobe."
+      },
+      {
+        "content": "rmod",
+        "explanation": "There is no rmod command. rmmod exists, but you probably want to use modprobe -r instead."
+      },
+      {
+        "content": "ldd",
+        "explanation": "ldd shows the dynamic library dependencies of a command."
+      }
+    ],
+    "title": "How do you unload a Linux module from the running Kernel?",
+    "category": "LPIC 101",
+    "tags": "Kernel",
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "In which directory is the compiled Linux kernel normally located?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "1",
+    "answers": [
+      {
+        "content": "/sys",
+        "explanation": "The /sys directory provides information to the kernel like /proc, but better structured."
+      },
+      {
+        "content": "/proc",
+        "explanation": "The /proc mount point contains information about running processes and the Kernel."
+      },
+      {
+        "content": "/lib/modules",
+        "explanation": "/lib/modules/$(uname -r) contains the kernel drivers."
+      },
+      {
+        "content": "/dev",
+        "explanation": "Special or device files for physical devices."
+      },
+      {
+        "content": "/boot",
+        "explanation": "The boot folder contains typically the system kernel (or /)  and the boot loader."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Kernel",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which partition type should an UEFI boot partition have?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "7",
+    "answers": [
+      {
+        "content": "8300",
+        "explanation": "This is the default Linux partition type."
+      },
+      {
+        "content": "8200",
+        "explanation": "This is the Linux Swap type"
+      },
+      {
+        "content": "0700",
+        "explanation": "Windows NTFS/exFAT type."
+      },
+      {
+        "content": "4200",
+        "explanation": "SFS / Windows 2000 dynamic extender partition maker"
+      },
+      {
+        "content": "EF00",
+        "explanation": "EF00 is the Efi System Partition which is required for booting with UEFI and GPT."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which filesystem should the UEFI partition use?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "6",
+    "answers": [
+      {
+        "content": "NTFS",
+        "explanation": "NTFS is the default Windows file system."
+      },
+      {
+        "content": "ext4",
+        "explanation": "ext4 is a Linux file system."
+      },
+      {
+        "content": "btrfs",
+        "explanation": "btrfs is a Linux file system."
+      },
+      {
+        "content": "FAT32",
+        "explanation": "The UEFI specification mandates support for FAT16 and FAT32 file systems."
+      },
+      {
+        "content": "xfs",
+        "explanation": "XFS is a Linux / Unix filesystem."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": [
+      3
+    ]
+  },
+  {
+    "title": "Which of the following are Linux bootloaders?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "5",
+    "answers": [
+      {
+        "content": "systemd-boot",
+        "explanation": "systemd-boot is a simple UEFI boot manager"
+      },
+      {
+        "content": "mboot",
+        "explanation": "mboot is a custom MicroPython bootloader for STM32 MCUs"
+      },
+      {
+        "content": "GRUB",
+        "explanation": "GRUB is a Linux boot loader."
+      },
+      {
+        "content": "efibootmgr",
+        "explanation": "efibootmgr is a tool to manipulate the UEFI Boot Manager (Bios)."
+      },
+      {
+        "content": "blkid",
+        "explanation": "Prints block devices attributes"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": [
+      0,
+      2
+    ]
+  },
+  {
+    "title": "Which of the following is true? The initramfs normally contains ..",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "files needed for the system boot",
+        "explanation": "The initramfs contains the needed files, e.g. drivers, firmware, scripts to boot the system."
+      },
+      {
+        "content": "the Linux Kernel",
+        "explanation": "The Kernel can contain the initramfs, but not the other way around."
+      },
+      {
+        "content": "the Boot loader",
+        "explanation": "The initramfs can make boot process more flexible (hooks etc.), but contains no bootloader."
+      },
+      {
+        "content": "the initial ramdisk for use with /sys, /proc and /dev",
+        "explanation": "/sys, /proc and /dev are mounted during the boot (sysfs etc.)"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "Which of the following are Linux init systems?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "systemd \"System and Service Manager\"",
+        "explanation": "The systemd \"System and Service Manager\" is an init system. systemd itself is a software suite providing more software."
+      },
+      {
+        "content": "Upstart",
+        "explanation": "Upstart is a now deprecated init system initiated by Ubuntu"
+      },
+      {
+        "content": "service",
+        "explanation": "service is a command to control services in a System V Init environment"
+      },
+      {
+        "content": "systemctl",
+        "explanation": "systemctl is the systemd command to control services and more."
+      },
+      {
+        "content": "System V Init",
+        "explanation": "System V (SysV) was the most common Linux / Unix init system for a long time. Although there where several SysV Init replacement over the years most kept compatible with SysV."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": [
+      0,
+      1,
+      4
+    ]
+  }
+]
