@@ -4,18 +4,26 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>vue-quiz</title>
+  <title>Bytee.net Quiz</title>
   <script>
-  // Sample Quiz
+  // Sample Quiz with LPIC-1 Exam 101 Questions
   window.Quiz = {
     // Title heading of the quiz
     title: 'LPIC-1 Exam 101 Quiz',
     // Description of the quiz
     description: 'The LPIC-1 certification of the Linux Professional Institute requires passing the exams 101 and 102. This Quiz contains 25 questions focused on the 101 Exam topics, which you have to answer in 30 Minutes.',
+    // (Maximum) Number of Questions
+    questionCount: 60,
     // Duration in minutes
     duration: 30,
     // Link to a JSON file or API server
     questionsApi: '/sample-questions-lpic101.json',
+    // Randomize the quiz and questions (if the pool is larger)
+    randomize: true,
+    // URL where suggestions should posted to (see swagger API)
+    suggestionEndpoint: '/suggest.php',
+    // URL where reports should be posted to (see swagger API)
+    reportEndpoint: '/report.php',
   };
   </script>
 </head>

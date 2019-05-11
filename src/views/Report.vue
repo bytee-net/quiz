@@ -1,8 +1,11 @@
 <template>
 <div class="quiz-suggest">
   <h3>Report a Question</h3>
+  <div class="toast toast-success thank-you-message" v-show="showThankYou">
+    Thank you for the report!
+  </div>
 
-    <div class="form-group">
+  <div class="form-group">
     <label for="email" class="form-label">Your Email</label>
     <input id="email" type="text"
            placeholder="test@example.com"
@@ -29,6 +32,17 @@ export default {
   methods: {
     submit() {
       console.log(JSON.stringify(this.report));
+
+      // For now
+      this.$http
+        .post(window.Quiz.reportEndpoint, this.report)
+        .then((response) => {
+          this.showThankYou = true;
+        })
+        .catch((error) => {
+          // TODO Add error handling
+          console.log(error);
+        });
     },
   },
   data() {
@@ -38,6 +52,7 @@ export default {
         comment: '',
         question: this.$route.params,
       },
+      showThankYou: false,
     };
   },
 };

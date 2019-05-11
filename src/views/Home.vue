@@ -66,6 +66,7 @@
 
 <script>
 import isEqual from 'lodash/isEqual';
+import shuffle from 'lodash/shuffle';
 
 import Start from './Start';
 import Question from './Question';
@@ -83,8 +84,7 @@ export default {
     this.$http
       .get(this.quiz.questionsApi)
       .then((response) => {
-        this.questions = response.data;
-        console.log(response);
+        this.prepareQuiz(response.data);
       })
       .catch((error) => {
         // TODO Add error handling
@@ -96,6 +96,50 @@ export default {
     startQuiz() {
       this.startTimer(this.quiz.duration * 60);
       this.nextQuestion();
+    },
+
+    /**
+     * Prepare the quiz question
+     * @param questions
+     */
+    prepareQuiz(questions) {
+      if (this.quiz.randomize) {
+        // First shuffle the question ordering
+        questions = shuffle(questions);
+      }
+
+      // Shrink questions
+      if (this.quiz.questionCount && questions.length > this.quiz.questionCount) {
+        questions = questions.slice(0, this.quiz.questionCount);
+      }
+
+      // Question answers
+      if (this.quiz.randomize) {
+        // Shuffle questions, stupid hack TODO Improve
+        questions.forEach((question, index) => {
+          if (question.kind === 'text') {
+            return;
+          }
+
+          question.answers.forEach((answer, index) => {
+            if (question.resolution.includes(index)) {
+              answer.isCorrect = true;
+            }
+          });
+
+          question.answers = shuffle(question.answers);
+          question.resolution = [];
+
+          question.answers.forEach((answer, index) => {
+            if (answer.isCorrect) {
+              question.resolution.push(index);
+              delete answer.isCorrect;
+            }
+          });
+        });
+      }
+
+      this.questions = questions;
     },
 
     startTimer(duration) {

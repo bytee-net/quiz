@@ -224,7 +224,7 @@
       },
       {
         "content": "4200",
-        "explanation": "SFS / Windows 2000 dynamic extender partition maker"
+        "explanation": "SFS / Windows 2000 dynamic extender partition maker."
       },
       {
         "content": "EF00",
@@ -314,7 +314,7 @@
     "difficulty": "4",
     "answers": [
       {
-        "content": "files needed for the system boot",
+        "content": "files needed files for the system boot",
         "explanation": "The initramfs contains the needed files, e.g. drivers, firmware, scripts to boot the system."
       },
       {
@@ -370,6 +370,790 @@
       0,
       1,
       4
+    ]
+  },
+  {
+    "title": "Where is the partition table located on a mass storage device with an MBR partition scheme?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": 0,
+    "answers": [
+      {
+        "content": "At the beginning of a partition",
+        "explanation": "No, partitions can contain a Partition Boot Record (PBR / VBR)"
+      },
+      {
+        "content": "On multiple locations of the device",
+        "explanation": "GPT stores cyclic redundancy checks (CRC) on multiple locations, MBR does not."
+      },
+      {
+        "content": "At the end of the storage device",
+        "explanation": "No"
+      },
+      {
+        "content": "In an extended partition",
+        "explanation": "MBR differentiates between primary, extended and logical partitions, but this has nothing to do with the location of the partition table."
+      },
+      {
+        "content": "At the beginning / First sector of the device",
+        "explanation": "The MBR consists of 512 or more bytes and is located in the first sector of the device"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "How many primary partitions can you have with an MBR partitioning scheme?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "1",
+    "answers": [
+      {
+        "content": "1",
+        "explanation": ""
+      },
+      {
+        "content": "2",
+        "explanation": ""
+      },
+      {
+        "content": "4",
+        "explanation": "You can have up to four primary / extended partitions."
+      },
+      {
+        "content": "15",
+        "explanation": ""
+      },
+      {
+        "content": "128",
+        "explanation": ""
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": [
+      2
+    ]
+  },
+  {
+    "title": "What is the maximum addressable storage space of a MBR partitioned hard disk with a 512 byte sector size?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "1024 GB",
+        "explanation": "GB  is 10^9 bytes, e.g. 1,000,000,000 bytes"
+      },
+      {
+        "content": "512 GB",
+        "explanation": ""
+      },
+      {
+        "content": "2048 Gb",
+        "explanation": "Gb = Gigabit"
+      },
+      {
+        "content": "2048 GiB",
+        "explanation": "Correct, 2^32 x 512 bytes (~2TiB) is the maximum addressable storage size of MBR."
+      },
+      {
+        "content": "1024 GiB",
+        "explanation": ""
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": [
+      3
+    ]
+  },
+  {
+    "title": "How many partitions does GPT support?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "4",
+        "explanation": "MBR supports up to 4 primary / extended partitions."
+      },
+      {
+        "content": "32",
+        "explanation": "No"
+      },
+      {
+        "content": "64",
+        "explanation": "No"
+      },
+      {
+        "content": "128",
+        "explanation": "Correct, GUID Partition Table (GPT) supports up to 128 partitions."
+      },
+      {
+        "content": "256",
+        "explanation": "No"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": []
+  },
+  {
+    "title": "Which commands prints the Linux kernel message buffer?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "2",
+    "answers": [
+      {
+        "content": "uname",
+        "explanation": "`uname -r` prints the Kernel release version."
+      },
+      {
+        "content": "klog",
+        "explanation": "There is no such command, `klogd` is a daemon which logs Linux Kernel messages with syslogd."
+      },
+      {
+        "content": "kernellog",
+        "explanation": "Not existing"
+      },
+      {
+        "content": "None, the kernel log can be found in a log file",
+        "explanation": "As the kernel log starts, even before any filesystem is available, it's saved in a buffer and accessed by a command. On most distributions there are log files, where the Kernel messages are stored once the filesystem is ready."
+      },
+      {
+        "content": "dmesg",
+        "explanation": "dmesg (display / driver message) in the command that prints the message buffer of the Kernel."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Kernel",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which of the following is true for systemd-journald?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "5",
+    "answers": [
+      {
+        "content": "Stored in /var/log/messages",
+        "explanation": "On certain distributions there is a copy of the log in this file with systemd, but originally it's not stored there."
+      },
+      {
+        "content": "Stored in /var/log/syslog",
+        "explanation": "On certain distributions there is a copy of the log in this file with systemd, but originally it's not stored there."
+      },
+      {
+        "content": "Stored in /var/log/journal",
+        "explanation": "The journal is stored in binary format in /var/log/journal"
+      },
+      {
+        "content": "The log is stored in text files",
+        "explanation": "With systemd-journal the systems log is no longer stored in text files, but in binary format."
+      },
+      {
+        "content": "The logs are stored in binary format.",
+        "explanation": "Correct, systemd-journal stores logs in a binray format (Journal File Format)"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Init",
+    "resolution": [
+      2,
+      4
+    ]
+  },
+  {
+    "title": "What kind of Kernel is the Linux one?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "5",
+    "answers": [
+      {
+        "content": "Microkernel",
+        "explanation": "A microkernel is the near-minimum amount of software to implement an operating system and are often smaller than monolithic kernels."
+      },
+      {
+        "content": "Hybrid Kernel",
+        "explanation": "A hybrid kernel tries to combine aspects of a micro- and a monolithic Kernel. The Windows NT Kernel is a prominent example."
+      },
+      {
+        "content": "Nanokernel",
+        "explanation": "Nanokernel normally referenced to very small kernels (in terms of code), often it references also to a virtualization layer under a operating system (hypervisor)."
+      },
+      {
+        "content": "Exokernel",
+        "explanation": "With an Exokernel, software can communicate with hardware much more directly."
+      },
+      {
+        "content": "Monolithic Kernel",
+        "explanation": "Correct, the Linux Kernel is a monolithic one, handling most things, like process management, in the kernel space."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Kernel",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which of the following commands restarts a Linux system on a SysV system immediately?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "shutdown -h now",
+        "explanation": "This would shut down the system."
+      },
+      {
+        "content": "init 6",
+        "explanation": "Correct, switching to the sixth runlevel with SysVInit reboots a system."
+      },
+      {
+        "content": "reboot",
+        "explanation": "Correct, the reboot command immediately reboots the system."
+      },
+      {
+        "content": "restart",
+        "explanation": "This command is not existing"
+      },
+      {
+        "content": "init 0",
+        "explanation": "This would shutdown the system"
+      },
+      {
+        "content": "shutdown -r 1",
+        "explanation": "This would reboot the system in one minute, not immediately!"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Init",
+    "resolution": [
+      1,
+      2
+    ]
+  },
+  {
+    "title": "How do you start the apache2 service with systemd without a reboot?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "systemctl enable apache2",
+        "explanation": "This would enable the service, but not start it directly (only after reboot)."
+      },
+      {
+        "content": "service apache2 start",
+        "explanation": "This is the old SysVInit way of starting a service."
+      },
+      {
+        "content": "start apache2",
+        "explanation": "This were old SysVInit scripts (refering to serviec) for starting a service."
+      },
+      {
+        "content": "systemctl start apache2",
+        "explanation": "Correct, systemctl start apache2 starts the service, systemctl stop apache2 would stop it (you can also add .service to the name)."
+      },
+      {
+        "content": "init 5",
+        "explanation": "With SysVInit this would change to the fifth run level of the system."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "101.1",
+    "resolution": [
+      3
+    ]
+  },
+  {
+    "title": "In which file the default runlevel for a SysVInit system is set?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "/etc/init",
+        "explanation": "There is no such file"
+      },
+      {
+        "content": "/etc/init.d",
+        "explanation": "/etc/init.d is a folder containing the shell scripts to control services."
+      },
+      {
+        "content": "/etc/fstab",
+        "explanation": "The fstab contains the static information about the filesystems."
+      },
+      {
+        "content": "/etc/inittab",
+        "explanation": "Correc,t the inittab contains the run level configuration. For example: id:3:initdefault: would tell init to boot into run level 3 by default."
+      },
+      {
+        "content": "/boot/grub/grub.cfg",
+        "explanation": "This is the configuration file of the bootloader, not the init system."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Init",
+    "resolution": [
+      3
+    ]
+  },
+  {
+    "title": "How do you power down a system in 5 minutes?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "2",
+    "answers": [
+      {
+        "content": "init 0",
+        "explanation": "This would immediately shut down the system."
+      },
+      {
+        "content": "init 6",
+        "explanation": "This would immediately reboot the system."
+      },
+      {
+        "content": "powerdown -h 360",
+        "explanation": "This command is not existing."
+      },
+      {
+        "content": "shutdown -h 5",
+        "explanation": "Correct, this would shut down the system in 5 minutes."
+      },
+      {
+        "content": "shutdown -h 300",
+        "explanation": "This would power off the system in 300 minutes."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Init",
+    "resolution": [
+      3
+    ]
+  },
+  {
+    "title": "How do you send a broadcast message to all logged in users? (Without files)",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "echo \"Hello\"",
+        "explanation": "This just outputs Hello to the standard output."
+      },
+      {
+        "content": "wall \"Hello\"",
+        "explanation": "This would try to open and send a file called \"Hello\"."
+      },
+      {
+        "content": "echo \"Hello\" | wall",
+        "explanation": "You can pipe the message to wall to send a message to all logged in users."
+      },
+      {
+        "content": "wall",
+        "explanation": "When you just type wall, you can enter your message and stop it with Ctrl + D"
+      },
+      {
+        "content": "netmsg \"Hallo\"",
+        "explanation": "This would be a windows command."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      2,
+      3
+    ]
+  },
+  {
+    "title": "Which folder generally would contain the apache2 / httpd executable on Linux?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "/lib",
+        "explanation": "The lib folder normally contains the shared libraries to boot the system, the kernel modules and the most important libraries."
+      },
+      {
+        "content": "/usr/lib",
+        "explanation": "The lib folder contains libraries."
+      },
+      {
+        "content": "/sbin",
+        "explanation": "Like /bin this holds commands needed to boot the system, but are normally not executed by normal users (like fdisk)."
+      },
+      {
+        "content": "/bin",
+        "explanation": "The /bin directory normally contains executable programs needed in single user mode and to boot the system up."
+      },
+      {
+        "content": "/usr/bin",
+        "explanation": "As the apache2 executable is not mandatory for a system boot, it is normally contained in /usr/bin."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Filesystem",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which file configures the GRUB (v2) boot loader?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "5",
+    "answers": [
+      {
+        "content": "/boot/grub.cfg",
+        "explanation": "No"
+      },
+      {
+        "content": "/boot/loader/loader.conf",
+        "explanation": "This is the configuration file for systemd-boot (Gummiboot before)."
+      },
+      {
+        "content": "/boot/grub/menu.lst",
+        "explanation": "This was the config file for Grub Version 1"
+      },
+      {
+        "content": "/boot/grub/grub.conf",
+        "explanation": "No, the ending is different for this file."
+      },
+      {
+        "content": "/boot/grub/grub.cfg",
+        "explanation": "Correct, the GRand Unified Bootloader configuration can be found there since version 2 (1.98)"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "How do you enable an existing swap partition?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "mkswap",
+        "explanation": "This would create a swap partition."
+      },
+      {
+        "content": "onswap",
+        "explanation": "No."
+      },
+      {
+        "content": "swapon",
+        "explanation": "Correct, swapon activates an swap partition. (Reminder: Partition type 82)"
+      },
+      {
+        "content": "free",
+        "explanation": "free shows the free memory and swap space."
+      },
+      {
+        "content": "swdisk",
+        "explanation": "This command does not exist."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Filesystem",
+    "resolution": [
+      2
+    ]
+  },
+  {
+    "title": "Which partition type code should be used for a swap partition?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "6",
+    "answers": [
+      {
+        "content": "83",
+        "explanation": "No, this is the partition scheme for Linux"
+      },
+      {
+        "content": "42",
+        "explanation": "No, this type is used by Windows 2000 special partitions."
+      },
+      {
+        "content": "82",
+        "explanation": "Correct, a swap partition should use the partition code 82."
+      },
+      {
+        "content": "ef",
+        "explanation": "ef00 is an EFI System Partition"
+      },
+      {
+        "content": "07",
+        "explanation": "This is partition type is used for Windows NTFS and exFAT systems."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Filesystem",
+    "resolution": [
+      2
+    ]
+  },
+  {
+    "title": "Which directory normally contains the initramfs / initrd file? (not /)",
+    "explanation": "The initramfs / initrd normally is located in the boot directory. (/ is also allowed, but not common)",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": 0,
+    "answers": [
+      {
+        "content": "",
+        "explanation": ""
+      }
+    ],
+    "resolution": [
+      "/boot"
+    ],
+    "category": "LPIC 101",
+    "tags": "Filesystem"
+  },
+  {
+    "title": "Which manual shows information about the Linux filesystem hierachy? (Name of the manual page only)",
+    "explanation": "man hier shows the description of the Linux filesystem hierachy.",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "7",
+    "answers": [
+      {
+        "content": "",
+        "explanation": ""
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Filesystem",
+    "resolution": [
+      "hier"
+    ]
+  },
+  {
+    "title": "Which boot loader probably uses the following syntax?",
+    "explanation": "",
+    "code_block": "title Gentoo 5.1.0\nlinux /vmlinuz-5.1.0-gentoo\ninitrd /initramfs-genkernel-x86_64-5.1.0-gentoo\noptions domdadm dolvm crypt_root=/dev/md/gentoo:root real_root=/dev/mapper/crypt-root root=/dev/mapper/crypt-root rootfstype=ext4 root_trim=yes \n",
+    "kind": "single",
+    "difficulty": "7",
+    "answers": [
+      {
+        "content": "GRUB 1",
+        "explanation": "No, the GRUB 1 config consists of a single file, located normally in /boot/grub/menu.lst"
+      },
+      {
+        "content": "GRUB 2",
+        "explanation": "No, the GRUB 1 config consists of a single file, located normally in /boot/grub/grub.cfg"
+      },
+      {
+        "content": "Lilo",
+        "explanation": "No, the lilo.conf used equal signs between their values."
+      },
+      {
+        "content": "systemd-boot",
+        "explanation": "Correct, this is a definition of a boot loader entry for systemd-boot (previously Gummiboot)"
+      },
+      {
+        "content": "rEFInd",
+        "explanation": "No, the rEFInd uses an ini like syntax"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": [
+      3
+    ]
+  },
+  {
+    "title": "How do you create a LVM2 volume group?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "7",
+    "answers": [
+      {
+        "content": "pvcreate",
+        "explanation": "pvcreate initializes a (physical) volume for use by LVM."
+      },
+      {
+        "content": "lvcreate",
+        "explanation": "lvcreate creates a logical volume on an existing volume group."
+      },
+      {
+        "content": "mkvg",
+        "explanation": "LVM2 uses create, not make."
+      },
+      {
+        "content": "vgcreate",
+        "explanation": "Correct, vgcreate creates a volume group. You have to initialize a physical volume with pvcreate first."
+      },
+      {
+        "content": "mkfs",
+        "explanation": "mkfs - MaKe FileSystem formats a partition."
+      }
+    ],
+    "resolution": [
+      3
+    ]
+  },
+  {
+    "title": "How do you generate the GRUB configuration? (Version 2, Command only, no parameters)",
+    "explanation": "grub-mkconfig -o /boot/grub/grub.cfg - grub-mkconfig generates the GRUB2 configuration and prints it to the standard output.",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "7",
+    "answers": [
+      {
+        "content": "",
+        "explanation": ""
+      }
+    ],
+    "resolution": [
+      "grub-mkconfig"
+    ],
+    "comment": ""
+  },
+  {
+    "title": "How do you install Grub into the MBR of the first mass storage device?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "grub-install /dev/sdb",
+        "explanation": "This would install GRUB into the MBR of the second hard drive."
+      },
+      {
+        "content": "install-grub /dev/sda",
+        "explanation": "The other way around."
+      },
+      {
+        "content": "grub-install --target=x86_64-efi --efi-directory=/boot/EFI",
+        "explanation": "This would install GRUB for UEFI."
+      },
+      {
+        "content": "update-grub /dev/sda",
+        "explanation": "No"
+      },
+      {
+        "content": "grub-install /dev/sda",
+        "explanation": "Correct, this would install GRUB into the MBR of the first mass storage device."
+      }
+    ],
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "What would be the best way to print out the MBR of the first mass storage device?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "5",
+    "answers": [
+      {
+        "content": "hexdump -C -n 512 /dev/sda",
+        "explanation": "Correct, this would dump the first 512 bytes of the first mass storage device and display it with hexdump in ASCII mode."
+      },
+      {
+        "content": "dd if=/dev/sda of=mbr.txt bs=512 count=1",
+        "explanation": "This would save the MBR to a mbr.txt file."
+      },
+      {
+        "content": "cat /dev/sda",
+        "explanation": "Bad idea"
+      },
+      {
+        "content": "head -n 512 /dev/sda",
+        "explanation": "This would output the first 512 lines the device, probably containing the MBR, but a lot of other junk too."
+      },
+      {
+        "content": "tail -n 512 /dev/sda",
+        "explanation": "This would output the last 512 lines of the device."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Boot",
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "Which file ending do shared libraries have on Linux?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": ".dll",
+        "explanation": "This would be the windows version."
+      },
+      {
+        "content": ".sl",
+        "explanation": "No"
+      },
+      {
+        "content": "None (Linux files have no file ending).",
+        "explanation": "No, certain files do have file endings in Linux."
+      },
+      {
+        "content": ".ko",
+        "explanation": "This would be kernel drivers / modules."
+      },
+      {
+        "content": ".so",
+        "explanation": "Correct. shared libraries end with .so (shared object)"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Library",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which command probably generated the following output? (Command only)",
+    "explanation": "ldd prints shared object / library dependencies. `ldd $(which cp)`",
+    "code_block": "linux-vdso.so.1 (0x00007ffe5e995000)\nlibacl.so.1 => /lib64/libacl.so.1 (0x00007fd72d962000)\nlibattr.so.1 => /lib64/libattr.so.1 (0x00007fd72d75c000)\nlibc.so.6 => /lib64/libc.so.6 (0x00007fd72d587000)\n/lib64/ld-linux-x86-64.so.2 (0x00007fd72dbc4000)",
+    "kind": "text",
+    "difficulty": "7",
+    "answers": [
+      {
+        "content": "",
+        "explanation": ""
+      }
+    ],
+    "resolution": [
+      "ldd"
     ]
   }
 ]

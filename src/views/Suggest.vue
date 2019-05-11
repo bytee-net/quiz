@@ -2,6 +2,16 @@
 <div class="quiz-suggest">
   <h3>Suggest a Question</h3>
 
+  <div class="toast toast-success thank-you-message" v-show="showThankYou">
+    Thank you for your suggestion!
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="form-label">Your Email address (optional)</label>
+    <input type="text" id="email" v-model="suggestion.email" class="form-input"
+              placeholder="contact@bytee.net">
+  </div>
+
   <div class="form-group">
     <label for="title" class="form-label">Question</label>
     <input id="title" type="text" placeholder="Text of the Question" class="form-input"
@@ -93,7 +103,8 @@
         </div>
       </div>
       <div class="col col-1 text-right">
-        <button class="btn" @click="suggestion.answers.push({})">+</button>
+        <button class="btn" @click="suggestion.answers.push({content: '', explanation: '',})">+
+        </button>
         <button class="btn" @click="suggestion.answers.splice(index, 1)" v-if="index !== 0">-
         </button>
       </div>
@@ -127,8 +138,8 @@ export default {
         this.suggestion.resolution = [];
 
         this.suggestion.answers.forEach((item, index) => {
-          item.content = item.content.trim();
-          item.explanation = item.explanation.trim();
+          item.content = item.content ? item.content.trim() : '';
+          item.explanation = item.explanation ? item.explanation.trim() : '';
 
           // Transform the correct answers to an array
           if (item.isCorrect) {
@@ -142,6 +153,17 @@ export default {
       }
 
       console.log(JSON.stringify(this.suggestion));
+
+      // For now
+      this.$http
+        .post(window.Quiz.suggestionEndpoint, this.suggestion)
+        .then((response) => {
+          this.showThankYou = true;
+        })
+        .catch((error) => {
+          // TODO Add error handling
+          console.log(error);
+        });
     },
   },
   data() {
@@ -152,8 +174,12 @@ export default {
         code_block: '',
         kind: 'single',
         difficulty: 0,
-        answers: [{}],
+        answers: [{
+          content: '',
+          explanation: '',
+        }],
       },
+      showThankYou: false,
     };
   },
 };
