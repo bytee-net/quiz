@@ -1,7 +1,8 @@
 {
-  "name": "vue-quiz",
+  "name": "bytee-quiz",
   "version": "0.1.0",
-  "private": true,
+  "author": "Bytee.net <contact@bytee.net> (https://bytee.net)",
+  "license": "GPL-3.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
