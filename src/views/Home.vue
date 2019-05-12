@@ -31,14 +31,14 @@
             class="btn btn-primary"
             v-if="!resolveResolution && numQuestion !== 0"
             @click="previousQuestion"
-        >
+          >
           Previous Question
         </button>
         <button
             class="btn btn-primary"
             v-if="resolveResolution"
             @click="numQuestion = questions.length"
-        >
+          >
           Back to the Results
         </button>
       </div>
@@ -168,7 +168,13 @@ export default {
     answer(val) {
       // Checking done here for convenience
       this.activeQuestion.answer = val;
-      this.activeQuestion.isCorrect = isEqual(val, this.activeQuestion.resolution);
+
+      if (this.activeQuestion.kind !== 'text') {
+        this.activeQuestion.isCorrect = isEqual(val, this.activeQuestion.resolution);
+      } else {
+        // Mutliple answers could be correct for text questions
+        this.activeQuestion.isCorrect = this.activeQuestion.resolution.includes(val);
+      }
 
       console.log(this.activeQuestion);
 

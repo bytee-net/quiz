@@ -3,9 +3,18 @@
 
     <div class="question-title">
       <h5>{{ question.title }}</h5>
+      <p class="text-italic" v-show="question.kind === 'single'">
+        Choose the most appropriate one.
+      </p>
+      <p class="text-italic" v-show="question.kind === 'multiple'">
+        Choose all matching answers (zero to all).
+      </p>
+      <p class="text-italic" v-show="question.kind === 'text'">
+        Type in the answer.
+      </p>
     </div>
 
-    <div class="code" v-show="question.code_block">
+    <div class="code code-block" v-show="question.code_block">
       <code v-html="code_block_text">
       </code>
     </div>
@@ -45,7 +54,7 @@ export default {
   props: ['question', 'resolve'],
   computed: {
     code_block_text() {
-      // Hacky new line to br stuff
+      // Hacky new line to br stuff, TODO improve parsing
       if (!this.question || !this.question.code_block) {
         return '';
       }
@@ -63,5 +72,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .code-block {
+    margin-bottom: 15px;
+  }
 </style>

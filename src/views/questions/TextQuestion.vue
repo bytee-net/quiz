@@ -3,7 +3,7 @@
     <input
         type="text"
         class="form-input"
-        placeholder="Type your answer"
+        placeholder="Your answer"
         v-model="answer"
         :class="getInputClass()"
         :disabled="resolve"
@@ -33,13 +33,13 @@ export default {
     },
 
     send() {
-      this.sendAnswer([this.answer.trim()]);
+      this.sendAnswer(this.answer.trim());
       this.answer = '';
     },
   },
   data() {
     return {
-      answer: this.question.answer ? this.question.answer[0] : '',
+      answer: this.question.answer ? this.question.answer : '',
     };
   },
 };
