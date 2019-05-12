@@ -504,7 +504,9 @@
     ],
     "category": "LPIC 101",
     "tags": "Boot",
-    "resolution": []
+    "resolution": [
+      3
+    ]
   },
   {
     "title": "Which commands prints the Linux kernel message buffer?",
@@ -732,7 +734,7 @@
         "explanation": "This would immediately reboot the system."
       },
       {
-        "content": "powerdown -h 360",
+        "content": "powerdown -h 300",
         "explanation": "This command is not existing."
       },
       {
@@ -928,10 +930,6 @@
     "kind": "text",
     "difficulty": 0,
     "answers": [
-      {
-        "content": "",
-        "explanation": ""
-      }
     ],
     "resolution": [
       "/boot"
@@ -1154,6 +1152,1666 @@
     ],
     "resolution": [
       "ldd"
+    ]
+  },
+  {
+    "title": "Which command shows you printable character sequences in an Linux executable?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "8",
+    "answers": [
+      {
+        "content": "file",
+        "explanation": "file determines the file type."
+      },
+      {
+        "content": "cat",
+        "explanation": "concatenate just prints the whole file. (including non-printable chars)"
+      },
+      {
+        "content": "less",
+        "explanation": "less just dumps the whole file (including non-printable chars) in an non-editq vi frontend."
+      },
+      {
+        "content": "hexdump",
+        "explanation": "hexdump, while a very useful tool, also displays the whole file contents in hexadecimal (or decimal, octal or ascii)"
+      },
+      {
+        "content": "strings",
+        "explanation": "Correct, strings prints printable characters in files with at least 4 characters by default. Also useful for data files etc."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Libaray",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which file probably contains the following content?",
+    "explanation": "",
+    "code_block": "## Major bug fix updates produced after the final release of the\n## distribution.\ndeb http://archive.ubuntu.com/ubuntu/ bionic-updates main restricted\n# deb-src http://archive.ubuntu.com/ubuntu/ bionic-updates main restricted\n\n## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu\n## team. Also, please note that software in universe WILL NOT receive any\n## review or updates from the Ubuntu security team.\ndeb http://archive.ubuntu.com/ubuntu/ bionic universe\n# deb-src http://archive.ubuntu.com/ubuntu/ bionic universe\ndeb http://archive.ubuntu.com/ubuntu/ bionic-updates universe",
+    "kind": "single",
+    "difficulty": "2",
+    "answers": [
+      {
+        "content": "/etc/apt/sources.list",
+        "explanation": "Correct, the sources.list contains the mirror servers for the apt package management system on Debian, Ubuntu etc."
+      },
+      {
+        "content": "/etc/yum.repos.d/centos-base.repo",
+        "explanation": "No, this one of the configuration files for CentOS."
+      },
+      {
+        "content": "/etc/pacman.d/mirrorlist",
+        "explanation": "This would be the mirror selection file for Arch Linux."
+      },
+      {
+        "content": "/etc/nsswitch.conf",
+        "explanation": "No, that's the configuration file for the GNU Name Service Switch functionality."
+      },
+      {
+        "content": "/etc/portage/make.conf",
+        "explanation": "This is the configuration file for the Gentoo portage / emerge system."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Apt",
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "How can you get more information, like the maintainer, about an apt package on Debian?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "apt-cache show pkg",
+        "explanation": "apt-cache show displays the package records for the given package(s)."
+      },
+      {
+        "content": "apt-cache info pkg",
+        "explanation": "It would be info on yum / dnf, not on apt."
+      },
+      {
+        "content": "apt-cache search pkg",
+        "explanation": "This would display the package and it's description, but not the whole information."
+      },
+      {
+        "content": "apt-info pkg",
+        "explanation": "This command is not existing"
+      },
+      {
+        "content": "apt-show pkg",
+        "explanation": "This command is not existing"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Apt",
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "How can you delete an package including it's configuration?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "apt-get remove pkg",
+        "explanation": "This would uninstall the package, but leave the configuration file on the system."
+      },
+      {
+        "content": "apt-get clean pkg",
+        "explanation": "apt-get clean (without pkg) removes everything but the lock file from /var/cache/apt/archives/ and /var/cache/apt/archives/partial"
+      },
+      {
+        "content": "apt-get purge pkg",
+        "explanation": "Purge is identical to remove, but also deletes configuration files too (not in home directories)."
+      },
+      {
+        "content": "apt-get force-remove pkg",
+        "explanation": "Not existing"
+      },
+      {
+        "content": "apt-get autoclean pkg",
+        "explanation": "apt-get autoclean would remove packages which are no longer in use."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Apt",
+    "resolution": [
+      2
+    ]
+  },
+  {
+    "title": "How could you reconfigure your available languages on a Debian system?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "apt-get reinstall language",
+        "explanation": "No, there is no package language."
+      },
+      {
+        "content": "dpkg-reconfigure locales",
+        "explanation": "Correct, this would open a window asking you to select the languages you want to have available."
+      },
+      {
+        "content": "vim /etc/locale.gen",
+        "explanation": "The locale-gen command, which you need to execute afterwards, is missing and you generally should prefer using dpkg-reconfigure."
+      },
+      {
+        "content": "locale-gen",
+        "explanation": "This would generate the locales based on the /etc/locale.gen file, but not add new languages."
+      },
+      {
+        "content": "export LANG=\"my_new_language\"",
+        "explanation": "This would overwrite the LANG environment variable (/etc/locale.conf) to a new language, but not add any new."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Apt",
+    "resolution": [
+      1
+    ]
+  },
+  {
+    "title": "How can you list all installed packages on an Debian system?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "apt-get installed",
+        "explanation": "This is not existing."
+      },
+      {
+        "content": "apt-cache pkgnames",
+        "explanation": "This shows all available packages."
+      },
+      {
+        "content": "apt-cache list",
+        "explanation": "There is no such operation, there is `apt list --installed` in newer Ubuntu versions (14.04)."
+      },
+      {
+        "content": "dpkg list",
+        "explanation": "dpkg is not having the same syntax as apt, so you need to use parameters."
+      },
+      {
+        "content": "dpkg -l",
+        "explanation": "dpkg -l shows the installed packages, as an alternative you can also use dpkg --get-selections."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Apt",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which of the following commands belong to the Debian package management system?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "apt-get",
+        "explanation": "With apt-get you can manage the systems packages."
+      },
+      {
+        "content": "apt-cache",
+        "explanation": "With apt-cache you can find information on packages."
+      },
+      {
+        "content": "apt-remove",
+        "explanation": "There is no such command"
+      },
+      {
+        "content": "yum",
+        "explanation": "This is the RHEL / Centos package manager (Before Version 8)"
+      },
+      {
+        "content": "dpkg-reconfigure",
+        "explanation": "With dpkg-reconfigure you can reconfigure already installed packages."
+      },
+      {
+        "content": "zypper",
+        "explanation": "This is the package manage of Suse."
+      },
+      {
+        "content": "rpm",
+        "explanation": "rpm is the RPM package manager (like dpkg) for distributions using rpm files."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Apt",
+    "resolution": [
+      0,
+      1,
+      4
+    ]
+  },
+  {
+    "title": "How do you update your system with yum? Shows the most suitable one.",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "yum update && yum upgrade",
+        "explanation": "No, though this would update and upgrade your system, with yum you only have to use one command. yum update and upgrade (deprecated) is the same. This would be apt-get way."
+      },
+      {
+        "content": "yum update",
+        "explanation": "This updates the package lists and upgrades every currently installed package on the system."
+      },
+      {
+        "content": "yum distupgrade",
+        "explanation": "This does not exist."
+      },
+      {
+        "content": "yum updatepackages",
+        "explanation": "This does not exist."
+      },
+      {
+        "content": "yum -Syu",
+        "explanation": "This does not exist."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Yum",
+    "resolution": [
+      1
+    ]
+  },
+  {
+    "title": "Which command lists the files in an installed RPM packages",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "5",
+    "answers": [
+      {
+        "content": "rpm -ql",
+        "explanation": "rpm -q -l shows you the files from an installed rpm."
+      },
+      {
+        "content": "rpm2cpio",
+        "explanation": "This would extract an cpio archive from the package (but you would still need to extract that too)."
+      },
+      {
+        "content": "rpm --list-files",
+        "explanation": "This is not existing."
+      },
+      {
+        "content": "rpm --query-files",
+        "explanation": "This is not existing."
+      },
+      {
+        "content": "rpm -i",
+        "explanation": "This would install an rpm package."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Rpm",
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "To which package manager the following snippet probably belongs? (Command only)",
+    "explanation": "yum the package manager of RHEL or CentOS (Before Version 8) is using this configuration format for it's repository configuration.",
+    "code_block": "[base]\nname=CentOS-$releasever - Base\nmirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra\n#baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/\ngpgcheck=1\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7",
+    "kind": "text",
+    "difficulty": "4",
+    "answers": [
+    ],
+    "category": "LPIC 101",
+    "tags": "Yum",
+    "resolution": [
+      "yum"
+    ]
+  },
+  {
+    "title": "Which of the following files (if existing) are normally loaded during the startup of the Bourne-Again Shell (bash)?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "5",
+    "answers": [
+      {
+        "content": "/etc/skel",
+        "explanation": "No, the /etc/skel directory contains the skeleton files for newly created users with home directory (They are copied there)."
+      },
+      {
+        "content": "/etc/profile",
+        "explanation": "Correct, the /etc/profile file is the base configuration loaded not only for the bash, but for most shells."
+      },
+      {
+        "content": "~/profile",
+        "explanation": "No, there is a dot missing. If existing ~/.profile is loaded too."
+      },
+      {
+        "content": "~/.bashrc",
+        "explanation": "Correct this is the Bash startup file of the user, where they can override settings and add their own things."
+      },
+      {
+        "content": "/etc/bash",
+        "explanation": "This is not existing, it's either /etc/bashrc or a configuration directory for the bash."
+      },
+      {
+        "content": "~/.xinitrc",
+        "explanation": "The ~/.xinitrc is used to run (GUI) programs and set environment variables on the X server (xorg) startup."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Bash",
+    "resolution": [
+      1,
+      3
+    ]
+  },
+  {
+    "title": "How do you delete an Variable on the bash? (Command only)",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "remove",
+        "explanation": "There is no such command."
+      },
+      {
+        "content": "rm",
+        "explanation": "This would delete files."
+      },
+      {
+        "content": "unset",
+        "explanation": "With unset you delete an environment variable from the shell."
+      },
+      {
+        "content": "clear",
+        "explanation": "clears the terminal screen (like Ctrl + L)"
+      },
+      {
+        "content": "uname",
+        "explanation": "Prints system and Kernel information"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Bash",
+    "resolution": [
+      2
+    ]
+  },
+  {
+    "title": "How would you extend the list of directories, where the shell is looking for executable files, with your users \"~/bin\" folder?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "expand PATH:~/bin",
+        "explanation": "expand converts tabs to spaces."
+      },
+      {
+        "content": "export PATH:~/bin",
+        "explanation": "It's KEY=Value"
+      },
+      {
+        "content": "export PATH=$PATH;~/bin",
+        "explanation": "The path variable is using the colon for separation"
+      },
+      {
+        "content": "export $PATH=PATH:~/bin",
+        "explanation": "If ever working (not allowed variable name) this would set the content of your PATH variable as an variable with the text PATH:~/bin"
+      },
+      {
+        "content": "export PATH=\"$PATH:~/bin\"",
+        "explanation": "This extends the PATH variable with your users ~/bin folder."
+      },
+      {
+        "content": "export PATH=\"PATH:~/bin\"",
+        "explanation": "This would screw up your PATH variable with the text PATH and your users bin folder."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Bash",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which Environment Variable holds the language configuration for the shell? (Name only)",
+    "explanation": "LANG is the correct answer, you can print it with echo $LANG",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "4",
+    "answers": [
+    ],
+    "resolution": [
+      "LANG"
+    ],
+    "category": "LPIC 101",
+    "tags": "Bash"
+  },
+  {
+    "title": "How can you display all environment variables?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "echo *",
+        "explanation": "This would display all files and directories in the current folder."
+      },
+      {
+        "content": "echo $?",
+        "explanation": "This would display the exit code of the last command."
+      },
+      {
+        "content": "export *",
+        "explanation": "This would try to export all files to an environment variable (empty Strings)."
+      },
+      {
+        "content": "set",
+        "explanation": "set without any parameters prints all local-, global environment variables and definitions."
+      },
+      {
+        "content": "env",
+        "explanation": "Correct env without options will print the Environment variables."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Bash",
+    "resolution": [
+      3,
+      4
+    ]
+  },
+  {
+    "title": "Which command shows you the full path to a command (e.g. only /bin/ls)?",
+    "explanation": "which showthe full path of commands. whereis would also show you other paths (like to the man page)",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "3",
+    "answers": [
+    ],
+    "resolution": [
+        "which"
+    ]
+  },
+  {
+    "title": "In which file is the users bash history stored?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "/etc/bash_history",
+        "explanation": "It's about the user! And this file is not existing too."
+      },
+      {
+        "content": "/var/log/syslog",
+        "explanation": "It's about the user."
+      },
+      {
+        "content": "~/.history",
+        "explanation": "This file is not existing"
+      },
+      {
+        "content": "~/.bash_history",
+        "explanation": "The users input history of the bash is stored in ~/.bash_history by default."
+      },
+      {
+        "content": "~/.bashrc",
+        "explanation": "The bashrc contains is the users startup file for the Bash."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Bash",
+    "resolution": [
+      3
+    ]
+  },
+  {
+    "title": "Which section number has the manual for the /etc/fstab file?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "7",
+    "answers": [
+      {
+        "content": "1",
+        "explanation": "1 would be executable programs or shell commands."
+      },
+      {
+        "content": "8",
+        "explanation": "8 are system administration commands."
+      },
+      {
+        "content": "6",
+        "explanation": "6 was intended to be for games."
+      },
+      {
+        "content": "4",
+        "explanation": "4 is for special files (/dev normally)"
+      },
+      {
+        "content": "5",
+        "explanation": "5 is for file formats and file descriptions, like /etc/fstab - man fstab"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Man",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which of the following will output your current directory position on the shell?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "pwd",
+        "explanation": "The pwd command prints out the current working directory."
+      },
+      {
+        "content": "echo $PWD",
+        "explanation": "The Environment Variable PWD contains the current working directory."
+      },
+      {
+        "content": "echo $(pwd)",
+        "explanation": "Yes, you can use the command substitution mode with echo to get the current working directory."
+      },
+      {
+        "content": "echo PWD",
+        "explanation": "This is going to output PWD as text."
+      },
+      {
+        "content": "w",
+        "explanation": "w prints the current logged in users"
+      },
+      {
+        "content": "whereis",
+        "explanation": "whereis locates binary, source and the manual page files for a command."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Bash",
+    "resolution": [
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "title": "Which command probably outputed the following? (No parameters, command only)",
+    "explanation": "uname -a displays the Kernel version, the architecture, the hostname and some other information about the system.",
+    "code_block": "Linux byteeTR2 5.1.0-gentoo #1 SMP PREEMPT Wed May 8 08:03:10 CEST 2019 x86_64 AMD Ryzen Threadripper 2990WX 32-Core Processor AuthenticAMD GNU/Linux\n",
+    "kind": "text",
+    "difficulty": "6",
+    "answers": [
+    ],
+    "category": "LPIC 101",
+    "tags": "Kernel",
+    "resolution": [
+      "uname"
+    ]
+  },
+  {
+    "title": "What would be the output of the following echo command?",
+    "explanation": "",
+    "code_block": "$ EXAM=\"LPIC 101\"\n$ echo 'Exam: \"$EXAM\"'",
+    "kind": "single",
+    "difficulty": "5",
+    "answers": [
+      {
+        "content": "Exam: \"$EXAM\"",
+        "explanation": "Correct, in single quotes Variables are not evaluated and the double quotes are printed as text. Use double quotes around the whole statement instead."
+      },
+      {
+        "content": "Exam:",
+        "explanation": "No, this would happen if the environment variable is not existing and you would use double quotes."
+      },
+      {
+        "content": "Exam: \"LPIC 101\"",
+        "explanation": "No, you need to use double quotes for that. In single quotes Variables are not evaluated."
+      },
+      {
+        "content": "An error would occur",
+        "explanation": "No, the syntax is correct, even if the result is not what you want."
+      },
+      {
+        "content": "Exam: LPIC 101",
+        "explanation": "No, the double quotes are displayed as text only and the variable is not evaluated."
+      }
+    ],
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "How do you get the MD5 checksum of a file for validating a download? (Command only)",
+    "explanation": "md5sum file would give you the md5 checksum a file.",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "5",
+    "answers": [
+      {
+        "content": "",
+        "explanation": ""
+      }
+    ],
+    "resolution": [
+      "md5sum"
+    ]
+  },
+  {
+    "title": "How do you display the first lines of a file? (No parameters, command only)",
+    "explanation": "head without parameters prints the first ten lines of a file.",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "3",
+    "answers": [
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      "head"
+    ]
+  },
+  {
+    "title": "How do you display the last lines of a file? (Command only, no parameters)",
+    "explanation": "tail shows the last 10 lines of a given file.",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "3",
+    "answers": [
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      "tail"
+    ]
+  },
+  {
+    "title": "Which command shows you the number of lines of a file? (Not the file itself)",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "2",
+    "answers": [
+      {
+        "content": "nl",
+        "explanation": "nl prints the file with line numbers on the beginning."
+      },
+      {
+        "content": "wc",
+        "explanation": "Correct, wc shows you the number of lines, word and char-count of a file. wc -l would only output the number of lines."
+      },
+      {
+        "content": "zcat",
+        "explanation": "zcat prints out the file contents of a compressed file."
+      },
+      {
+        "content": "uniq",
+        "explanation": "uniq reports or omits repeated / duplicate lines."
+      },
+      {
+        "content": "tr",
+        "explanation": "tr replaces or deletes characters."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      1
+    ]
+  },
+  {
+    "title": "What would the following do? `echo * | tr \" \" \"\\n\" | head -n 1`",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "2",
+    "answers": [
+      {
+        "content": "Get the first Environment Variable and print it.",
+        "explanation": "No, env | head -1 could do that."
+      },
+      {
+        "content": "Print all files and directories in the current directory.",
+        "explanation": "No, echo * does that."
+      },
+      {
+        "content": "Print all Environment Variables",
+        "explanation": "No, env would do that."
+      },
+      {
+        "content": "Print the first file or directory in your current directory.",
+        "explanation": "Correct, echo * prints files / directories in your current folder, with tr you replace the space with a newline character and head -1 prints the first line."
+      },
+      {
+        "content": "An syntax error would occur",
+        "explanation": "No, the syntax is correct."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      3
+    ]
+  },
+  {
+    "title": "Which command allows you to reverse sort the lines of a text file?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "rsort",
+        "explanation": "This command does not exist."
+      },
+      {
+        "content": "usort",
+        "explanation": "This command does not exist."
+      },
+      {
+        "content": "reverse",
+        "explanation": "This command does not exist."
+      },
+      {
+        "content": "sort",
+        "explanation": "Correct, sort with -r let's you reversely sort a file / input (by lines)."
+      },
+      {
+        "content": "uniq",
+        "explanation": "uniq is for handling duplicate lines."
+      },
+      {
+        "content": "nl",
+        "explanation": "nl numbers lines."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      3
+    ]
+  },
+  {
+    "title": "Which of the following does touch not do?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "Create an empty file",
+        "explanation": "touch can create an empty file."
+      },
+      {
+        "content": "Update the created time of an existing file",
+        "explanation": "touch modifies the access and modified time, but not the created time of an existing file."
+      },
+      {
+        "content": "Update the access and modification time of a directory",
+        "explanation": "touch also sets the times on a directory."
+      },
+      {
+        "content": "Update the access and modification time of a file",
+        "explanation": "touch sets the times on a file."
+      },
+      {
+        "content": "Create a directory",
+        "explanation": "touch would create file, if the file / directory is not existing, not an directory."
+      },
+      {
+        "content": "Create a file with an modified access date.",
+        "explanation": "Touch can do that."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      1,
+      4
+    ]
+  },
+  {
+    "title": "You can add -r to the move (mv) command?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "True",
+        "explanation": "No, there is no such option / parameter and you would get an syntax error."
+      },
+      {
+        "content": "False",
+        "explanation": "There is no parameter -r for mv."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      1
+    ]
+  },
+  {
+    "title": "Which commands determines the file type of a given file? (Command only)",
+    "explanation": "file tests for the file type and prints it out.",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "3",
+    "answers": [
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      "file"
+    ]
+  },
+  {
+    "title": "How would you create an Backup of your MBR of your first mass storage device?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "head -n 512 /dev/sda > mbr-backup",
+        "explanation": "This would read the first 512 lines of the device as text."
+      },
+      {
+        "content": "hexdump -n 512 -C > mbr-backup",
+        "explanation": "No, hexdump is useful for showing the MBR but not for saving it."
+      },
+      {
+        "content": "dd if=/dev/sda of=mbr-backup bs=512 count=1",
+        "explanation": "Correct, dd is the best way to make a binary copy of the MBR."
+      },
+      {
+        "content": "gzip -n 512 /dev/sda > mbr-backup",
+        "explanation": "Just no."
+      },
+      {
+        "content": "tar cvf /dev/sda sda-backup",
+        "explanation": "No"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      2
+    ]
+  },
+  {
+    "title": "Which of the following would create a backup of your user home directory?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "tar xf backup.tar ~",
+        "explanation": "This would extract a file called backup.tar."
+      },
+      {
+        "content": "tar xf ~ backup.tar",
+        "explanation": "This would try to extract a file ~."
+      },
+      {
+        "content": "tar cvf ~ backup.tar",
+        "explanation": "This would try to create a file ~ with the content of backup.tar"
+      },
+      {
+        "content": "tar -cf backup.tar /home",
+        "explanation": "This would create a backup of the whole /home directory, probably including the one of your user, but also everyone else."
+      },
+      {
+        "content": "tar cvf backup.tar ~",
+        "explanation": "This is create a backup of your home directory to the backup.tar file. (create, verbose, file)"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which of the following are common compression tools on Linux?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "xzip",
+        "explanation": "Does not exist."
+      },
+      {
+        "content": "xz",
+        "explanation": "Correct, xz is one of the strongest compression tools on Linux currently."
+      },
+      {
+        "content": "gzip",
+        "explanation": "Correct, gzip is a compression tool."
+      },
+      {
+        "content": "bz2",
+        "explanation": "That's just the file ending, bzip2 is the command."
+      },
+      {
+        "content": "bunzip2",
+        "explanation": "Correct, bunzip2 is existing."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      1,
+      2,
+      4
+    ]
+  },
+  {
+    "title": "mkdir test/test2/test3 would create non existing parent directories too?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "1",
+    "answers": [
+      {
+        "content": "True",
+        "explanation": "No, you need to add -p for it."
+      },
+      {
+        "content": "False",
+        "explanation": "Yes, you need to add -p or --parents in order to create needed parent directories."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      1
+    ]
+  },
+  {
+    "title": "How do you search for modified things in the last 1 minute in the current directory?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "find . -mmin -1",
+        "explanation": "Correct -mmin -1 would search for files modified in the last minute."
+      },
+      {
+        "content": "find . -mtime -1",
+        "explanation": "This would search for files modified in the last day."
+      },
+      {
+        "content": "find . -mmin 1",
+        "explanation": "This would search for files modified exactly one minute ago."
+      },
+      {
+        "content": "find . -mmin +1",
+        "explanation": "This searches for files which are not modified one minute ago."
+      },
+      {
+        "content": "find -mtime -1 .",
+        "explanation": "No, finds syntax requires the folder to search for before the expression."
+      },
+      {
+        "content": "find -mmin -1 .",
+        "explanation": "No, finds syntax requires the folder to search for before the expression."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "Which of the following would redirect the standard and error output?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": ">",
+        "explanation": "This only redirects the standard output"
+      },
+      {
+        "content": "2>",
+        "explanation": "This only redirects the error output"
+      },
+      {
+        "content": ">>",
+        "explanation": "This redirects the output and appends it."
+      },
+      {
+        "content": "<",
+        "explanation": "This reads the input."
+      },
+      {
+        "content": "&>",
+        "explanation": "This redirects the standard and error output."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Redirect",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which of the following prints and outputs to file simultaneously?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "&>",
+        "explanation": "This redirects the standard and error output."
+      },
+      {
+        "content": "2>",
+        "explanation": "This redirects the error output."
+      },
+      {
+        "content": "tee",
+        "explanation": "tee writes to file and outputs simultaneously."
+      },
+      {
+        "content": "xargs",
+        "explanation": "xargs buils command line options from the standard input."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      2
+    ]
+  },
+  {
+    "title": "Which kill signal is send by default by the kill command? (If no other supplied)",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "-9",
+        "explanation": "This is the SIGKILL signal."
+      },
+      {
+        "content": "-1",
+        "explanation": "This is the SIGHUP (reload configuration) signal."
+      },
+      {
+        "content": "-USR1",
+        "explanation": "This would be the SIGUSR1 signal, you can send it for example to dd to get a status."
+      },
+      {
+        "content": "-10",
+        "explanation": "This would be the SIGUSR1 command."
+      },
+      {
+        "content": "-15",
+        "explanation": "This is the default signal send, if no other specified. It's called SIGTERM."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      4
+    ]
+  },
+  {
+    "title": "Which of the following are bash programs to manage jobs?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "jobs",
+        "explanation": "The jobs command shows the currently running bash jobs."
+      },
+      {
+        "content": "fg",
+        "explanation": "fg jobid would bring a running job to the foreground."
+      },
+      {
+        "content": "bg",
+        "explanation": "bg jobid would continue running a job in the background (paused on)."
+      },
+      {
+        "content": "background",
+        "explanation": "No, it's bg."
+      },
+      {
+        "content": "foreground",
+        "explanation": "No, it's fg."
+      },
+      {
+        "content": "kill",
+        "explanation": "While kill could kill a running job, it does not belong to the builtin bash job commands."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Bash",
+    "resolution": [
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "title": "bg is an built in bash command? E.g. no regular executable.",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "True",
+        "explanation": "bg is an built-in bash command and no stand alone executable."
+      },
+      {
+        "content": "False",
+        "explanation": "No, bg is no stand alone executable. (which bg)"
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Bash",
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "How do you display the used memory of a Linux computer? (No parameters)",
+    "explanation": "free displays the used and available memory. (Tip: Use it with -h)",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "4",
+    "answers": [
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      "free"
+    ]
+  },
+  {
+    "title": "How can you view all running processes?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "ps",
+        "explanation": "Correct ps reports a snapshot of the current processes (e.g. ps aux)."
+      },
+      {
+        "content": "top",
+        "explanation": "Yes, top also displays running processes in a task manager style."
+      },
+      {
+        "content": "free",
+        "explanation": "free shows information about the systems memory."
+      },
+      {
+        "content": "watch",
+        "explanation": "watch allows you to execute a program periodically. (every 2 seconds by default)"
+      },
+      {
+        "content": "iftop",
+        "explanation": "iftop shows the current bandwidth usage on a network interface."
+      }
+    ],
+    "resolution": [
+      0,
+      1
+    ]
+  },
+  {
+    "title": "Which command allows you to periodically execute a program and look at it's output (For example ps every 5 seconds)? (Command only)",
+    "explanation": "watch allows to execute a program periodically and prints it output full screen. (every 2 seconds by default)",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "5",
+    "answers": [
+      {
+        "content": "",
+        "explanation": ""
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      "watch"
+    ]
+  },
+  {
+    "title": "Which program probably generated the following output?",
+    "explanation": "uptime shows how long the system has been running. top shows it too, but also contains a lot of other output.",
+    "code_block": " 12:08:51 up 4 days,  2:03,  1 user,  load average: 0.47, 0.75, 0.69",
+    "kind": "text",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "",
+        "explanation": ""
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      "uptime"
+    ]
+  },
+  {
+    "title": "Which of the following are valid nice values?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": 0,
+    "answers": [
+      {
+        "content": "19",
+        "explanation": "19 is a valid nice value (-20 to 19)"
+      },
+      {
+        "content": "0",
+        "explanation": "0 is a valid nice value (-20 to 19)"
+      },
+      {
+        "content": "-20",
+        "explanation": "-20 is a valid nice value (-20 to 19)"
+      },
+      {
+        "content": "20",
+        "explanation": "20 is not a valid nice value."
+      },
+      {
+        "content": "-127",
+        "explanation": "No"
+      },
+      {
+        "content": "255",
+        "explanation": "No"
+      },
+      {
+        "content": "127",
+        "explanation": "No"
+      }
+    ],
+    "resolution": [
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "title": "Which of the following commands allows you to change the nice value of a running command?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "nice",
+        "explanation": "With nice you can set the value BEFORE starting it."
+      },
+      {
+        "content": "ps",
+        "explanation": "ps shows running processes."
+      },
+      {
+        "content": "top",
+        "explanation": "Yes, top allows you to change the nice value. Just like the renice command."
+      },
+      {
+        "content": "rn",
+        "explanation": "This command does not exist."
+      },
+      {
+        "content": "watch",
+        "explanation": "watch allows you to periodically execute a command."
+      }
+    ],
+    "resolution": [
+      2
+    ]
+  },
+  {
+    "title": "The dot \".\" in a regex matches a single character?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "True",
+        "explanation": "The dot matches any single character."
+      },
+      {
+        "content": "False",
+        "explanation": "No."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Regex",
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "A regex with \"a*\" would match all words starting with an a?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "True",
+        "explanation": "No, that would be a.*"
+      },
+      {
+        "content": "False",
+        "explanation": "It would match unlimited a's. The * matches zero or more occurrences of the previous character."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Regex",
+    "resolution": [
+      1
+    ]
+  },
+  {
+    "title": "Which operator matches the end of lines in an regex?",
+    "explanation": "The $ matches the end of lines.",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "",
+        "explanation": ""
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Regex",
+    "resolution": [
+      "$"
+    ]
+  },
+  {
+    "title": "Which regex operator matches the beginning of a line?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "^",
+        "explanation": "The ^ operator matches the beginning, careful it also can be used to negate a statement (depending on language)."
+      },
+      {
+        "content": "$",
+        "explanation": "The dollar matches the end of a line."
+      },
+      {
+        "content": ".",
+        "explanation": "The dot matches any character."
+      },
+      {
+        "content": "*",
+        "explanation": "Matches zero or more of the previous character."
+      },
+      {
+        "content": "[]",
+        "explanation": "Matches any of the character gives in the brackets. [a-z] matches all lower case characters."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Regex",
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "Which command allows you to print lines that match an given pattern? (Basic command only, not the variants)",
+    "explanation": "grep allows you to print only lines containing a pattern.",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "2",
+    "answers": [
+      {
+        "content": "",
+        "explanation": ""
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      "grep"
+    ]
+  },
+  {
+    "title": "Which grep parameter negates the pattern, e.g. showing all lines NOT containing it?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "-i",
+        "explanation": "-i makes the search ignoring the case."
+      },
+      {
+        "content": "-v",
+        "explanation": "-v inverts the sense of matching."
+      },
+      {
+        "content": "-r",
+        "explanation": "-r recursively searchs all files under the directory."
+      },
+      {
+        "content": "-A",
+        "explanation": "-A 3 would also show 3 lines after a match."
+      },
+      {
+        "content": "-B",
+        "explanation": "-B 3 would also show 3 lines before a match."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Commands",
+    "resolution": [
+      1
+    ]
+  },
+  {
+    "title": "How would you start the editing mode after the current position of your cursor in vi?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "3",
+    "answers": [
+      {
+        "content": "i",
+        "explanation": "i starts the editing mode at the current position of the cursor."
+      },
+      {
+        "content": "a",
+        "explanation": "a starts the editing mode after the current position of the cursor."
+      },
+      {
+        "content": "o",
+        "explanation": "o starts the editing mode on a newly inserted line after the cursor."
+      },
+      {
+        "content": "h",
+        "explanation": "h would navigate the cursor one to left."
+      },
+      {
+        "content": "l",
+        "explanation": "l would navigate the cursor one to the right."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "vi",
+    "resolution": [
+      1
+    ]
+  },
+  {
+    "title": "Which Environment Variable holds the standard editor?",
+    "explanation": "The EDITOR variable holds the default editor for many cli application like crontab.",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "4",
+    "answers": [
+    ],
+    "tags": "Bash",
+    "category": "LPIC 101",
+    "resolution": [
+      "EDITOR"
+    ]
+  },
+  {
+    "title": "How do you cut out a line in vi? (command mode)",
+    "explanation": "dd cuts a line in the command mode, with p you can paste it.",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "4",
+    "answers": [
+    ],
+    "category": "LPIC 101",
+    "tags": "Vi",
+    "resolution": [
+      "dd"
+    ]
+  },
+  {
+    "title": "Which of the following are Linux filesystems and are supported directly by the Kernel?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "multiple",
+    "difficulty": "2",
+    "answers": [
+      {
+        "content": "FAT",
+        "explanation": "No FAT is a windows file system (which Linux can use)."
+      },
+      {
+        "content": "NTFS",
+        "explanation": "NTFS is a windows file system (which Linux can use)."
+      },
+      {
+        "content": "ext4",
+        "explanation": "Correct, ext4 is a Linux filesystem."
+      },
+      {
+        "content": "btrfs",
+        "explanation": "btrfs is a Linux filesystem."
+      },
+      {
+        "content": "exFAT",
+        "explanation": "No"
+      },
+      {
+        "content": "zfs",
+        "explanation": "This is tricky, the zfs license CDDL is not compatible to the GPLv2 the Linux Kernel uses, because of that ZFS support is not shipped in Linux directly."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Filesystem",
+    "resolution": [
+      2,
+      3
+    ]
+  },
+  {
+    "title": "How would you partition a mass storage device with an MBR (dos) partition scheme?",
+    "explanation": "",
+    "code_block": "",
+    "kind": "single",
+    "difficulty": "4",
+    "answers": [
+      {
+        "content": "fdisk",
+        "explanation": "fdisk is the MBR / dos partition tool."
+      },
+      {
+        "content": "gdisk",
+        "explanation": "gdisk is the GPT (GUID Partition Table) partition tool."
+      },
+      {
+        "content": "cgdisk",
+        "explanation": "cgdisk is a GPT (GUID Partition Table) partition tool."
+      },
+      {
+        "content": "mkfs",
+        "explanation": "With mkfs you would format (create a filesystem) a partition."
+      },
+      {
+        "content": "mkswap",
+        "explanation": "With mkswap you would create a swap partition."
+      }
+    ],
+    "category": "LPIC 101",
+    "tags": "Filesystem",
+    "resolution": [
+      0
+    ]
+  },
+  {
+    "title": "Which command checks an ext4 file system for errors? (Command only)",
+    "explanation": "This is a tricky question. There is fsck.ext4 to explicitly check ext4 systems, but fsck is a simple frontend automatically detecting the right type.",
+    "code_block": "",
+    "kind": "text",
+    "difficulty": "7",
+    "answers": [
+    ],
+    "category": "LPIC 101",
+    "tags": "Filesystem",
+    "resolution": [
+      "fsck",
+      "fsck.ext4"
     ]
   }
 ]
