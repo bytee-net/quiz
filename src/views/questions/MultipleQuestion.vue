@@ -24,7 +24,7 @@
     </div>
 
     <div class="nav-question text-right" v-show="!resolve">
-      <button class="btn btn-primary" @click="sendAnswer(answers.sort())">Answer</button>
+      <button class="btn btn-primary" @click="answer">Answer</button>
     </div>
   </div>
 </template>
@@ -34,6 +34,11 @@ export default {
   name: 'MultipleQuestion',
   props: ['question', 'resolve', 'sendAnswer'],
   methods: {
+    answer() {
+      this.sendAnswer(this.answers.sort());
+      this.answers = [];
+    },
+
     toggleAnswer(index) {
       if (this.answers.includes(index)) {
         this.answers = this.answers.filter(item => item !== index);
