@@ -7,6 +7,7 @@
 <style>
   @import './../node_modules/spectre.css/dist/spectre.min.css';
 
+  /* Simple CSS for the Quiz */
   #app {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -18,7 +19,7 @@
     max-width: 1024px;
   }
 
-  /* Overwrite spectre.css */
+  /* spectre.css overwrites */
   .btn.disabled, .btn:disabled, .btn[disabled] {
     opacity: 0.8;
   }
@@ -36,7 +37,7 @@
     margin: 30px 0;
   }
 
-  /* Buttons */
+  /* Buttons (Answers) */
   .bytee-quiz .btn-answer {
     display: block;
     width: 100%;
