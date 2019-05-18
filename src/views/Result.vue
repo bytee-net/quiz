@@ -11,14 +11,17 @@
     Click on the Question to learn more about the answers.
   </p>
 
-  <div v-for="(question, index) in questions"
-       :key="question.key"
-       :class="question.isCorrect ? 'correct-answer' : 'wrong-answer'"
-       class="quiz-answer"
-       @click="$emit('viewQuestion', index)"
+  <div class="quiz-answers">
+    <div v-for="(question, index) in questions"
+         :key="question.key"
+         :class="question.isCorrect ? 'correct-answer' : 'wrong-answer'"
+         class="quiz-answer"
+         @click="$emit('viewQuestion', index)"
     >
-    {{index + 1}}. {{question.title}}
+      {{index + 1}}. {{question.title}}
+    </div>
   </div>
+
 </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+<div id="app">
+  <router-view/>
+</div>
 </template>
 
 <style>
@@ -15,8 +15,7 @@
     margin: 10px auto;
     padding: 10px;
     line-height: 1.4rem;
-    /* TODO: tmp */
-    width: 1024px;
+    max-width: 1024px;
   }
 
   /* Overwrite spectre.css */
@@ -55,7 +54,7 @@
     height: 100%;
     width: 30px;
     background: #5755d9;
-    border-radius:0 15px 15px 0 / 0 20px 20px 0;
+    border-radius: 0 15px 15px 0 / 0 20px 20px 0;
     margin-left: 0;
     padding: 0 5px;
     color: #fff;
@@ -79,6 +78,14 @@
   .bytee-quiz .checked-option, .bytee-quiz .checked-option .btn-answer {
     background: #5755d9;
     color: #fff;
+  }
+
+  .bytee-quiz .checked-option-correct .question-num, .bytee-quiz .option-correct .question-num {
+    background: #36bf42;
+  }
+
+  .bytee-quiz .checked-option-wrong .question-num, .bytee-quiz .option-wrong .question-num {
+    background: #ef251c;
   }
 
   .bytee-quiz .checked-option-wrong {

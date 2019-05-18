@@ -1,6 +1,5 @@
 <template>
 <div class="quiz-question text-left">
-
   <div class="question-title text-center">
     <h3>{{ question.title }}</h3>
     <p class="text-italic" v-show="question.kind === 'single'">
@@ -44,7 +43,6 @@
 </template>
 
 <script>
-// TODO Improve nesting
 import SingleQuestion from './questions/SingleQuestion';
 import MultipleQuestion from './questions/MultipleQuestion';
 import TextQuestion from './questions/TextQuestion';

@@ -2,6 +2,9 @@
 <div class="quiz-suggest">
   <h3>Suggest a Question</h3>
 
+  <error-renderer :message="errorMessage" :severity="errorSeverity"
+                  @close="errorMessage = ''"></error-renderer>
+
   <div class="toast toast-success thank-you-message" v-show="showThankYou">
     Thank you for your suggestion!
   </div>
@@ -9,7 +12,7 @@
   <div class="form-group">
     <label for="email" class="form-label">Your Email address (optional)</label>
     <input type="text" id="email" v-model="suggestion.email" class="form-input"
-              placeholder="contact@bytee.net">
+           placeholder="contact@bytee.net">
   </div>
 
   <div class="form-group">
@@ -128,8 +131,13 @@
 <script>
 import uuidv1 from 'uuid/v1';
 
+import ErrorRenderer from './parts/ErrorRenderer';
+
 export default {
   name: 'Suggest',
+  components: {
+    ErrorRenderer,
+  },
   methods: {
     submit() {
       // Clean up
@@ -166,8 +174,8 @@ export default {
           this.showThankYou = true;
         })
         .catch((error) => {
-          // TODO Add error handling
-          console.log(error);
+          this.errorMessage = error;
+          this.errorSeverity = 'error';
         });
     },
   },
@@ -185,6 +193,10 @@ export default {
         }],
       },
       showThankYou: false,
+
+      // Error Handling
+      errorMessage: '',
+      errorSeverity: 'warning',
     };
   },
 };

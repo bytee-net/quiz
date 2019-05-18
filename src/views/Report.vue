@@ -1,6 +1,9 @@
 <template>
 <div class="quiz-suggest">
   <h3>Report a Question</h3>
+  <error-renderer :message="errorMessage" :severity="errorSeverity"
+                  @close="errorMessage = ''"></error-renderer>
+
   <div class="toast toast-success thank-you-message" v-show="showThankYou">
     Thank you for the report!
   </div>
@@ -27,8 +30,13 @@
 </template>
 
 <script>
+import ErrorRenderer from './parts/ErrorRenderer';
+
 export default {
   name: 'Report',
+  components: {
+    ErrorRenderer,
+  },
   methods: {
     submit() {
       console.log(JSON.stringify(this.report));
@@ -40,8 +48,8 @@ export default {
           this.showThankYou = true;
         })
         .catch((error) => {
-          // TODO Add error handling
-          console.log(error);
+          this.errorMessage = error;
+          this.errorSeverity = 'error';
         });
     },
   },
@@ -52,7 +60,12 @@ export default {
         comment: '',
         question: this.$route.params,
       },
+
       showThankYou: false,
+
+      // Error Handling
+      errorMessage: '',
+      errorSeverity: 'warning',
     };
   },
 };

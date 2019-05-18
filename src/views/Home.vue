@@ -1,5 +1,8 @@
 <template>
 <div class="bytee-quiz">
+  <error-renderer :message="errorMessage" :severity="errorSeverity"
+                  @close="errorMessage = ''"></error-renderer>
+
   <div class="quiz-info" v-if="numQuestion !== -1 && numQuestion !== questions.length">
     <div class="columns">
       <div class="quiz-question-number column col-6" title="Question number">
@@ -73,10 +76,12 @@ import shuffle from 'lodash/shuffle';
 import Start from './Start';
 import Question from './Question';
 import Result from './Result';
+import ErrorRenderer from './parts/ErrorRenderer';
 
 export default {
   name: 'home',
   components: {
+    ErrorRenderer,
     Result,
     Question,
     Start,
@@ -89,9 +94,8 @@ export default {
         this.prepareQuiz(response.data);
       })
       .catch((error) => {
-        // TODO Add error handling
-        console.log('Error loading questions');
-        console.log(error);
+        this.errorMessage = error;
+        this.errorSeverity = 'error';
       });
   },
   methods: {
@@ -204,14 +208,18 @@ export default {
     },
 
     sendStats() {
+      if (!window.Quiz.statisticEndpoint) {
+        return;
+      }
+
+      // Report users result
       this.$http
         .post(window.Quiz.statisticEndpoint, this.questions)
-        .then((response) => {
-          this.showThankYou = true;
+        .then(() => {
         })
         .catch((error) => {
-          // TODO Add error handling
-          console.log(error);
+          this.errorMessage = error;
+          this.errorSeverity = 'warning';
         });
     },
 
@@ -236,6 +244,10 @@ export default {
 
       // Results
       resolveResolution: false,
+
+      // Error Handling
+      errorMessage: '',
+      errorSeverity: 'warning',
     };
   },
 };
