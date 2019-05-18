@@ -6,8 +6,8 @@
         @click="sendAnswer([index])"
         :class="getButtonClass(index)"
         :disabled="resolve"
-      >
-      <input type="radio" :checked="question.answer && question.answer.includes(index)"/>
+    >
+      <span class="question-num">{{indexToLetter(index)}}.</span>
       {{ answer.content }}
     </button>
 
@@ -46,12 +46,4 @@ export default {
 </script>
 
 <style scoped>
-  .btn-answer {
-    display: block;
-    width: 100%;
-  }
-
-  .btn {
-    text-align: left;
-  }
 </style>

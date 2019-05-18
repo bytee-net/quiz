@@ -6,24 +6,26 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Bytee.net Quiz</title>
   <script>
-  // Sample Quiz with LPIC-1 Exam 101 Questions
+  // Sample Quiz with LPIC-1 Exam 101 Questions bundled
   window.Quiz = {
     // Title heading of the quiz
     title: 'LPIC-1 Exam 101 Quiz',
     // Description of the quiz
-    description: 'The LPIC-1 certification of the Linux Professional Institute requires passing the exams 101 and 102. This Quiz contains 20 questions focused on the 101 Exam topics, which you have to answer in 30 Minutes.',
+    description: 'The LPIC-1 certification (Linux Administrator) of the Linux Professional Institute requires passing the exams 101 and 102. This Quiz contains 20 questions focused on the 101 Exam topics, which you have to answer in 30 Minutes.',
     // (Maximum) Number of Questions
     questionCount: 20,
     // Duration in minutes
     duration: 30,
-    // Link to a JSON file or API server
-    questionsApi: '/sample-questions-lpic101.json',
     // Randomize the quiz and questions (if the pool is larger)
     randomize: true,
-    // URL where suggestions should posted to (see swagger API)
+    // Link to a JSON file or API server
+    questionsEndpoint: '/sample-questions-lpic101.json',
+    // URL where suggestions should posted to (see swagger)
     suggestionEndpoint: '/suggest.php',
-    // URL where reports should be posted to (see swagger API)
+    // URL where reports should be posted to (see swagger)
     reportEndpoint: '/report.php',
+    // Statistic endpoint (Sends the quiz result to the endpoint in order to be able to track question difficulty - see swagger)
+    statisticEndpoint: '/stats.php',
   };
   </script>
 </head>

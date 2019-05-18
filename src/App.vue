@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <div id="app">
     <router-view/>
   </div>
 </template>
@@ -11,7 +11,12 @@
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
+    border: 1px solid #ccc;
+    margin: 10px auto;
+    padding: 10px;
+    line-height: 1.4rem;
+    /* TODO: tmp */
+    width: 1024px;
   }
 
   /* Overwrite spectre.css */
@@ -28,13 +33,39 @@
     margin-right: 10px;
   }
 
-  /* Buttons */
+  .quiz-answers {
+    margin: 30px 0;
+  }
 
+  /* Buttons */
   .bytee-quiz .btn-answer {
     display: block;
     width: 100%;
-    padding: 3px 5px;
-    margin: 3px 0;
+    margin: 5px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 2rem;
+  }
+
+  .question-num {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    background: #5755d9;
+    border-radius:0 15px 15px 0 / 0 20px 20px 0;
+    margin-left: 0;
+    padding: 0 5px;
+    color: #fff;
+  }
+
+  .question-num:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
   }
 
   .bytee-quiz .option-correct {

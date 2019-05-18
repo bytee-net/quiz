@@ -1,45 +1,46 @@
 <template>
-  <div class="quiz-question text-left">
+<div class="quiz-question text-left">
 
-    <div class="question-title">
-      <h5>{{ question.title }}</h5>
-      <p class="text-italic" v-show="question.kind === 'single'">
-        Choose the most appropriate one.
-      </p>
-      <p class="text-italic" v-show="question.kind === 'multiple'">
-        Choose all matching answers (zero to all).
-      </p>
-      <p class="text-italic" v-show="question.kind === 'text'">
-        Type in the answer.
-      </p>
-    </div>
-
-    <div class="code code-block" v-show="question.code_block">
-      <code v-html="code_block_text">
-      </code>
-    </div>
-
-    <single-question
-        :question="question"
-        :resolve="resolve"
-        :sendAnswer="answer"
-        v-if="question.kind === 'single'" >
-    </single-question>
-
-    <multiple-question
-        :question="question"
-        :resolve="resolve"
-        :sendAnswer="answer"
-        v-if="question.kind === 'multiple'" >
-    </multiple-question>
-
-    <text-question
-        :question="question"
-        :resolve="resolve"
-        :sendAnswer="answer"
-        v-if="question.kind === 'text'" >
-    </text-question>
+  <div class="question-title text-center">
+    <h3>{{ question.title }}</h3>
+    <p class="text-italic" v-show="question.kind === 'single'">
+      Choose the most appropriate one.
+    </p>
+    <p class="text-italic" v-show="question.kind === 'multiple'">
+      Choose all matching answers (zero to all).
+    </p>
+    <p class="text-italic" v-show="question.kind === 'text'">
+      Type in the answer.
+    </p>
   </div>
+
+  <div class="code code-block" v-show="question.code_block">
+    <code v-html="code_block_text">
+    </code>
+  </div>
+
+  <single-question
+      :question="question"
+      :resolve="resolve"
+      :sendAnswer="answer"
+      v-if="question.kind === 'single'">
+  </single-question>
+
+  <multiple-question
+      :question="question"
+      :resolve="resolve"
+      :sendAnswer="answer"
+      v-if="question.kind === 'multiple'">
+  </multiple-question>
+
+  <text-question
+      :question="question"
+      :resolve="resolve"
+      :sendAnswer="answer"
+      v-if="question.kind === 'text'">
+  </text-question>
+
+</div>
 </template>
 
 <script>
@@ -50,7 +51,11 @@ import TextQuestion from './questions/TextQuestion';
 
 export default {
   name: 'Question',
-  components: { TextQuestion, MultipleQuestion, SingleQuestion },
+  components: {
+    TextQuestion,
+    MultipleQuestion,
+    SingleQuestion,
+  },
   props: ['question', 'resolve'],
   computed: {
     code_block_text() {
@@ -60,7 +65,7 @@ export default {
       }
 
       // eslint-disable-next-line
-      return this.question.code_block.replace(new RegExp('\r?\n','g'), '<br />');
+      return this.question.code_block.replace(new RegExp('\r?\n', 'g'), '<br />');
     },
   },
   methods: {
@@ -74,5 +79,10 @@ export default {
 <style scoped>
   .code-block {
     margin-bottom: 15px;
+  }
+
+  .question-title {
+    margin: 20px auto;
+    width: 80%;
   }
 </style>

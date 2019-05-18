@@ -1,12 +1,14 @@
 <template>
 <div class="bytee-quiz">
-  <h3>{{quiz.title}}</h3>
-
   <div class="quiz-info" v-if="numQuestion !== -1 && numQuestion !== questions.length">
-    Question {{numQuestion + 1}} of {{questions.length}}
-    <br/>
-    <div v-show="!resolveResolution">
-      Time left: {{timerText}} Minutes
+    <div class="columns">
+      <div class="quiz-question-number column col-6" title="Question number">
+        {{numQuestion + 1}} of {{questions.length}}
+      </div>
+      <div v-show="!resolveResolution" title="Time left in minutes"
+           class="quiz-time-left column col-6 text-right">
+        <i class="fa fa-time"></i> {{timerText}}
+      </div>
     </div>
   </div>
 
@@ -31,14 +33,14 @@
             class="btn btn-primary"
             v-if="!resolveResolution && numQuestion !== 0"
             @click="previousQuestion"
-          >
+        >
           Previous Question
         </button>
         <button
             class="btn btn-primary"
             v-if="resolveResolution"
             @click="numQuestion = questions.length"
-          >
+        >
           Back to the Results
         </button>
       </div>
@@ -82,7 +84,7 @@ export default {
   created() {
     // Very simple load
     this.$http
-      .get(this.quiz.questionsApi)
+      .get(this.quiz.questionsEndpoint)
       .then((response) => {
         this.prepareQuiz(response.data);
       })
@@ -100,7 +102,7 @@ export default {
 
     /**
      * Prepare the quiz question
-     * @param questions
+     * @param questions {Array} Questions for this Quiz
      */
     prepareQuiz(questions) {
       if (this.quiz.randomize) {
@@ -172,7 +174,7 @@ export default {
       if (this.activeQuestion.kind !== 'text') {
         this.activeQuestion.isCorrect = isEqual(val, this.activeQuestion.resolution);
       } else {
-        // Mutliple answers could be correct for text questions
+        // Multiple answers could be correct for text questions
         this.activeQuestion.isCorrect = this.activeQuestion.resolution.includes(val);
       }
 
@@ -194,10 +196,23 @@ export default {
       if (this.numQuestion === this.questions.length) {
         this.resolveResolution = true;
         clearInterval(this.timer);
+        this.sendStats();
         return;
       }
 
       this.activeQuestion = this.questions[this.numQuestion];
+    },
+
+    sendStats() {
+      this.$http
+        .post(window.Quiz.statisticEndpoint, this.questions)
+        .then((response) => {
+          this.showThankYou = true;
+        })
+        .catch((error) => {
+          // TODO Add error handling
+          console.log(error);
+        });
     },
 
     // Result

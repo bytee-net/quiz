@@ -1,21 +1,21 @@
 <template>
-  <div class="text-question quiz-answers">
-    <input
-        type="text"
-        class="form-input"
-        placeholder="Your answer"
-        v-model="answer"
-        :class="getInputClass()"
-        :disabled="resolve"
-    >
-    <blockquote class="quiz-explanation" v-if="resolve">
-      <i class="icon icon-message"></i> {{ question.explanation }}
-    </blockquote>
+<div class="text-question quiz-answers">
+  <input
+      type="text"
+      class="form-input"
+      placeholder="Your answer"
+      v-model="answer"
+      :class="getInputClass()"
+      :disabled="resolve"
+  >
+  <blockquote class="quiz-explanation" v-if="resolve">
+    <i class="icon icon-message"></i> {{ question.explanation }}
+  </blockquote>
 
-    <div class="text-question-answer text-right" v-show="!resolve">
-      <button class="btn btn-primary" @click="send">Answer</button>
-    </div>
+  <div class="text-question-answer text-right" v-show="!resolve">
+    <button class="btn btn-primary" @click="send">Answer</button>
   </div>
+</div>
 </template>
 
 <script>
@@ -46,15 +46,6 @@ export default {
 </script>
 
 <style scoped>
-  .btn-answer {
-    display: block;
-    width: 100%;
-  }
-
-  .btn {
-    text-align: left;
-  }
-
   .text-question-answer {
     margin: 10px 0;
   }

@@ -1,32 +1,31 @@
 <template>
-  <div class="multiple-question quiz-answers">
-    <div
-        v-for="(answer, index) in question.answers"
-        class="quiz-answer"
-        :key="answer.text"
-        :class="answers.includes(index) ? 'checked-option': 'option'"
+<div class="multiple-question quiz-answers">
+  <div
+      v-for="(answer, index) in question.answers"
+      class="quiz-answer"
+      :key="answer.text"
+      :class="answers.includes(index) ? 'checked-option': 'option'"
+      :disabled="resolve"
+  >
+    <button
+        class="btn btn-action btn-answer"
         :disabled="resolve"
-      >
-      <button
-          class="btn btn-action btn-answer"
-          :disabled="resolve"
-          @click="toggleAnswer(index)"
-          :class="getButtonClass(index)"
-        >
-        <input type="checkbox"
-               :checked="answers.includes(index)"/>
-        {{ answer.content }}
-      </button>
+        @click="toggleAnswer(index)"
+        :class="getButtonClass(index)"
+    >
+      <span class="question-num">{{indexToLetter(index)}}.</span>
+      {{ answer.content }}
+    </button>
 
-      <blockquote class="quiz-explanation" v-if="resolve">
-        <i class="icon icon-message"></i> {{ answer.explanation }}
-      </blockquote>
-    </div>
-
-    <div class="nav-question text-right" v-show="!resolve">
-      <button class="btn btn-primary" @click="answer">Answer</button>
-    </div>
+    <blockquote class="quiz-explanation" v-if="resolve">
+      <i class="icon icon-message"></i> {{ answer.explanation }}
+    </blockquote>
   </div>
+
+  <div class="nav-question text-right" v-show="!resolve">
+    <button class="btn btn-primary" @click="answer">Answer</button>
+  </div>
+</div>
 </template>
 
 <script>
@@ -46,6 +45,7 @@ export default {
         this.answers.push(index);
       }
     },
+
     getButtonClass(index) {
       const cl = [];
 
@@ -73,7 +73,5 @@ export default {
 </script>
 
 <style scoped>
-  .btn {
-    text-align: left;
-  }
+
 </style>

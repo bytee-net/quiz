@@ -116,7 +116,7 @@
     ]
   },
   {
-    "title": "Which file contains information on the CPU(s) and it's bugs? (Full path + file)",
+    "title": "Which file contains information on the CPU(s) and it's bugs? (Full path and filename)",
     "kind": "text",
     "resolution": [
       "/proc/cpuinfo"
@@ -1645,8 +1645,8 @@
     ]
   },
   {
-    "title": "Which command shows you the full path to a command (e.g. only /bin/ls)?",
-    "explanation": "which showthe full path of commands. whereis would also show you other paths (like to the man page)",
+    "title": "Which command shows you the full path of a command (e.g. /bin/ls)?",
+    "explanation": "`which` shows the full path of commands. `whereis` would also show you other paths (like to the man page)",
     "code_block": "",
     "kind": "text",
     "difficulty": "3",
@@ -2742,20 +2742,20 @@
         "explanation": "NTFS is a windows file system (which Linux can use)."
       },
       {
-        "content": "ext4",
-        "explanation": "Correct, ext4 is a Linux filesystem."
+        "content": "Ext4",
+        "explanation": "Correct, Ext4 is a Linux filesystem."
       },
       {
-        "content": "btrfs",
-        "explanation": "btrfs is a Linux filesystem."
+        "content": "Btrfs",
+        "explanation": "Btrfs is a Linux filesystem."
       },
       {
         "content": "exFAT",
         "explanation": "No"
       },
       {
-        "content": "zfs",
-        "explanation": "This is tricky, the zfs license CDDL is not compatible to the GPLv2 the Linux Kernel uses, because of that ZFS support is not shipped in Linux directly."
+        "content": "ZFS",
+        "explanation": "This is tricky, the license ZFS is licensed under (CDDL) is not compatible to the GPLv2 the Linux Kernel uses, because of that ZFS support is not shipped in Linux directly."
       }
     ],
     "category": "LPIC 101",
