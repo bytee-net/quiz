@@ -33,6 +33,13 @@
     <div class="columns">
       <div class="column col-6">
         <button
+                class="btn btn-primary"
+                v-if="!resolveResolution && numQuestion !== 0"
+                @click="firstQuestion"
+        >
+          Back to the Start
+        </button>
+        <button
             class="btn btn-primary"
             v-if="!resolveResolution && numQuestion !== 0"
             @click="previousQuestion"
@@ -188,6 +195,12 @@ export default {
     },
 
     // Navigation
+    firstQuestion() {
+      this.numQuestion = 0;
+
+      this.activeQuestion = this.questions[this.numQuestion];
+    },
+
     previousQuestion() {
       this.numQuestion -= 1;
 

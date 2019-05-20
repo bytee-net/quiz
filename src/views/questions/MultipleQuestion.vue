@@ -34,7 +34,12 @@ export default {
   props: ['question', 'resolve', 'sendAnswer'],
   methods: {
     answer() {
-      this.sendAnswer(this.answers.sort());
+      if (!this.answers && this.question.answer && this.question.answer.length) {
+        // Answers from previous
+        this.sendAnswer(JSON.parse(JSON.stringify(this.question.answer)));
+      }
+
+      this.sendAnswer(JSON.parse(JSON.stringify(this.answers.sort())));
       this.answers = [];
     },
 
@@ -53,6 +58,7 @@ export default {
         cl.push(this.question.resolution.includes(index) ? 'option-correct' : 'option-wrong');
       }
 
+      // TODO fix for previous
       if (this.question.answer && this.question.answer.includes(index)) {
         cl.push('checked-option');
 
