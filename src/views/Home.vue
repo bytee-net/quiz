@@ -23,7 +23,7 @@
 
   <question
       v-if="numQuestion !== -1 && numQuestion !== questions.length"
-      :question="activeQuestion"
+      :question.sync="activeQuestion"
       :resolve="resolveResolution"
       @answer="answer"
   >

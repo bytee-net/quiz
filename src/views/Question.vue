@@ -19,21 +19,21 @@
   </div>
 
   <single-question
-      :question="question"
+      :question.sync="question"
       :resolve="resolve"
       :sendAnswer="answer"
       v-if="question.kind === 'single'">
   </single-question>
 
   <multiple-question
-      :question="question"
+      :question.sync="question"
       :resolve="resolve"
       :sendAnswer="answer"
       v-if="question.kind === 'multiple'">
   </multiple-question>
 
   <text-question
-      :question="question"
+      :question.sync="question"
       :resolve="resolve"
       :sendAnswer="answer"
       v-if="question.kind === 'text'">
