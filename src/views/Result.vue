@@ -16,7 +16,7 @@
          :key="question.key"
          :class="question.isCorrect ? 'correct-answer' : 'wrong-answer'"
          class="quiz-answer"
-         @click="$emit('viewQuestion', index)"
+         @click="$emit('viewQuestion', question.index)"
     >
       {{index + 1}}. {{question.title}}
     </div>

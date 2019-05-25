@@ -29,13 +29,30 @@
   >
   </question>
 
+  <final
+      v-if="numQuestion === questions.length && !resolveResolution"
+      :questions="questions"
+      @resolveQuiz="resolveQuiz"
+      @goToQuestion="viewQuestion"
+      @previousQuestion="previousQuestion"
+  >
+  </final>
+
+  <result
+      v-if="resolveResolution && numQuestion === questions.length"
+      :questions="questions"
+      @viewQuestion="viewQuestion"
+  >
+  </result>
+
+  <!-- Quiz Nav, TODO MOVE -->
   <div class="quiz-nav" v-if="numQuestion !== -1 && numQuestion !== questions.length">
     <div class="columns">
-      <div class="column col-6">
+      <div class="column col-8">
         <button
-                class="btn btn-primary"
-                v-if="!resolveResolution && numQuestion !== 0"
-                @click="firstQuestion"
+            class="btn btn-primary"
+            v-if="!resolveResolution && numQuestion !== 0"
+            @click="firstQuestion"
         >
           Back to the Start
         </button>
@@ -48,13 +65,21 @@
         </button>
         <button
             class="btn btn-primary"
+            v-if="!resolveResolution && numQuestion >= 0"
+            @click="markQuestion"
+        >
+          <span v-show="activeQuestion.marked">Clear Flag</span>
+          <span v-show="!activeQuestion.marked">Flag Question</span>
+        </button>
+        <button
+            class="btn btn-primary"
             v-if="resolveResolution"
             @click="numQuestion = questions.length"
         >
           Back to the Results
         </button>
       </div>
-      <div class="column col-6 text-right">
+      <div class="column col-4 text-right">
         <router-link to="/suggest" target="_blank">Suggest Question</router-link>
         |
         <router-link :to="{name: 'report', params: { question: activeQuestion.title } }"
@@ -63,16 +88,7 @@
         </router-link>
       </div>
     </div>
-
   </div>
-
-  <result
-      v-if="numQuestion === questions.length"
-      :questions="questions"
-      @viewQuestion="viewQuestion"
-  >
-  </result>
-
 </div>
 </template>
 
@@ -84,10 +100,12 @@ import Start from './Start';
 import Question from './Question';
 import Result from './Result';
 import ErrorRenderer from './parts/ErrorRenderer';
+import Final from './Final';
 
 export default {
   name: 'home',
   components: {
+    Final,
     ErrorRenderer,
     Result,
     Question,
@@ -127,30 +145,35 @@ export default {
       }
 
       // Question answers
-      if (this.quiz.randomize) {
-        // Shuffle questions, stupid hack TODO Improve
-        questions.forEach((question, index) => {
-          if (question.kind === 'text') {
-            return;
+      // Shuffle questions, stupid hack TODO Improve
+      questions.forEach((question, index) => {
+        question.index = index;
+
+        if (!this.quiz.randomize) {
+          return;
+        }
+
+        if (question.kind === 'text') {
+          return;
+        }
+
+        question.answers.forEach((answer, index) => {
+          if (question.resolution.includes(index)) {
+            answer.isCorrect = true;
           }
-
-          question.answers.forEach((answer, index) => {
-            if (question.resolution.includes(index)) {
-              answer.isCorrect = true;
-            }
-          });
-
-          question.answers = shuffle(question.answers);
-          question.resolution = [];
-
-          question.answers.forEach((answer, index) => {
-            if (answer.isCorrect) {
-              question.resolution.push(index);
-              delete answer.isCorrect;
-            }
-          });
         });
-      }
+
+        question.answers = shuffle(question.answers);
+        question.resolution = [];
+
+        question.answers.forEach((answer, index) => {
+          if (answer.isCorrect) {
+            question.resolution.push(index);
+            delete answer.isCorrect;
+          }
+        });
+      });
+
 
       this.questions = questions;
     },
@@ -211,13 +234,17 @@ export default {
       this.numQuestion += 1;
 
       if (this.numQuestion === this.questions.length) {
-        this.resolveResolution = true;
-        clearInterval(this.timer);
-        this.sendStats();
+
         return;
       }
 
       this.activeQuestion = this.questions[this.numQuestion];
+    },
+
+    markQuestion() {
+      this.activeQuestion.marked = !this.activeQuestion.marked;
+
+      this.nextQuestion();
     },
 
     sendStats() {
@@ -240,6 +267,12 @@ export default {
     viewQuestion(index) {
       this.numQuestion = index;
       this.activeQuestion = this.questions[this.numQuestion];
+    },
+
+    resolveQuiz() {
+      this.sendStats();
+      this.resolveResolution = true;
+      clearInterval(this.timer);
     },
   },
   data() {
