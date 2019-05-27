@@ -138,40 +138,65 @@ export default {
   },
   methods: {
     submit() {
+      const submission = JSON.parse(JSON.stringify(this.suggestion));
+
       // Clean up
-      this.suggestion.title = this.suggestion.title.trim();
+      submission.title = submission.title.trim();
+
+      submission.tags = submission.tags ? submission.tags.split(',') : '';
 
       // Multiple answers
-      if (this.suggestion.kind !== 'text') {
-        this.suggestion.resolution = [];
+      if (submission.kind !== 'text') {
+        submission.resolution = [];
 
-        this.suggestion.answers.forEach((item, index) => {
+        submission.answers.forEach((item, index) => {
           item.content = item.content ? item.content.trim() : '';
           item.explanation = item.explanation ? item.explanation.trim() : '';
 
           // Transform the correct answers to an array
           if (item.isCorrect) {
-            this.suggestion.resolution.push(index);
+            submission.resolution.push(index);
           }
 
           delete item.isCorrect;
         });
       } else {
-        this.suggestion.resolution = [this.suggestion.resolution];
+        submission.resolution = [submission.resolution];
       }
 
-      console.log(JSON.stringify(this.suggestion));
+      console.log(JSON.stringify(submission));
 
       // For now
       this.$http
-        .post(window.Quiz.suggestionEndpoint, this.suggestion)
+        .post(window.Quiz.suggestionEndpoint, submission)
         .then((response) => {
           this.showThankYou = true;
+          this.resetForm(this.suggestion);
         })
         .catch((error) => {
           this.errorMessage = error;
           this.errorSeverity = 'error';
         });
+    },
+
+    resetForm(previousItem = null) {
+      // Reset the form
+      this.suggestion = {
+        title: '',
+        // Keep these for convenience
+        email: previousItem.email,
+        tags: previousItem.tags,
+        category: previousItem.category,
+        code_block: '',
+        explanation: '',
+        kind: 'single',
+        difficulty: 0,
+        answers: [{
+          content: '',
+          explanation: '',
+        }],
+        comment: '',
+      };
     },
   },
   data() {
