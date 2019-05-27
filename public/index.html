@@ -19,13 +19,14 @@
     // Randomize the quiz and questions (if the pool is larger)
     randomize: true,
     // Link to a JSON file or API server
-    questionsEndpoint: '/sample-questions-lpic101.json',
+    // questionsEndpoint: '/sample-questions-lpic101.json',
+    questionsEndpoint: 'http://localhost:3000/questions',
     // URL where suggestions should posted to (see swagger)
-    suggestionEndpoint: '/suggest.php',
+    suggestionEndpoint: 'http://localhost:3000/suggest',
     // URL where reports should be posted to (see swagger)
-    reportEndpoint: '/report.php',
+    reportEndpoint: 'http://localhost:3000/report',
     // Statistic endpoint (Sends the quiz result to the endpoint in order to be able to track question difficulty - see swagger)
-    statisticEndpoint: '',
+    statisticEndpoint: 'http://localhost:3000/stats',
   };
   </script>
 </head>

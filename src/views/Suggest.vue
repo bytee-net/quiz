@@ -129,8 +129,6 @@
 </template>
 
 <script>
-import uuidv1 from 'uuid/v1';
-
 import ErrorRenderer from './parts/ErrorRenderer';
 
 export default {
@@ -161,9 +159,6 @@ export default {
       } else {
         this.suggestion.resolution = [this.suggestion.resolution];
       }
-
-      // Just add an basic identifier
-      this.suggestion.uuid = uuidv1();
 
       console.log(JSON.stringify(this.suggestion));
 

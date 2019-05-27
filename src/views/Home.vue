@@ -234,7 +234,6 @@ export default {
       this.numQuestion += 1;
 
       if (this.numQuestion === this.questions.length) {
-
         return;
       }
 

@@ -1,6 +1,8 @@
 [
   {
     "title": "Which parameter do you add to `ls` to view also hidden files?",
+    "category": "lpic-101",
+    "tags": ["command"],
     "kind": "single",
     "resolution": [
       3
@@ -49,8 +51,8 @@
       }
     ],
     "title": "Which parameter allows you to filter for devices (PCI-Bus) with lspci?",
-    "category": "LPIC 101",
-    "tags": "hardware",
+    "category": "lpic-101",
+    "tags": ["hardware"],
     "difficulty": "4",
     "resolution": [
       4
@@ -58,6 +60,8 @@
   },
   {
     "title": "How do you obtain the ip address of an network adapter in Linux?",
+    "category": "lpic-101",
+    "tags": ["network"],
     "kind": "single",
     "resolution": [
       0
@@ -87,6 +91,8 @@
   },
   {
     "title": "Which tools can be used to change the nice value of a running process?",
+    "category": "lpic-101",
+    "tags": ["command"],
     "kind": "multiple",
     "resolution": [
       2,
@@ -117,6 +123,9 @@
   },
   {
     "title": "Which file contains information on the CPU(s) and it's bugs? (Full path and filename)",
+    "category": "lpic-101",
+    "tags": ["proc", "files"],
+    "difficulty": "8",
     "kind": "text",
     "resolution": [
       "/proc/cpuinfo"
@@ -130,11 +139,10 @@
     "kind": "text",
     "difficulty": "3",
     "answers": [
-      "lsusb"
     ],
     "code_block": "Bus 008 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub\nBus 007 Device 005: ID 1532:005c Razer USA, Ltd Razer DeathAdder Elite Mouse\nBus 007 Device 004: ID 0fd9:0060 Elgato Systems GmbH Stream Deck\nBus 007 Device 003: ID 1038:1724 SteelSeries ApS SteelSeries Rival 600\nBus 007 Device 002: ID 04b3:3025 IBM Corp. NetVista Full Width Keyboard",
-    "category": "LPIC 101",
-    "tags": "Hardware",
+    "category": "lpic-101",
+    "tags": ["hardware"],
     "resolution": [
       "lsusb"
     ]
@@ -163,8 +171,8 @@
       }
     ],
     "title": "How do you unload a Linux module from the running Kernel?",
-    "category": "LPIC 101",
-    "tags": "Kernel",
+    "category": "lpic-101",
+    "tags": ["kernel", "hardware"],
     "resolution": [
       0
     ]
@@ -197,8 +205,8 @@
         "explanation": "The boot folder contains typically the system kernel (or /)  and the boot loader."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Kernel",
+    "category": "lpic-101",
+    "tags": ["kernel"],
     "resolution": [
       4
     ]
@@ -231,8 +239,8 @@
         "explanation": "EF00 is the Efi System Partition which is required for booting with UEFI and GPT."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       4
     ]
@@ -265,8 +273,8 @@
         "explanation": "XFS is a Linux / Unix filesystem."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       3
     ]
@@ -299,8 +307,8 @@
         "explanation": "Prints block devices attributes"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       0,
       2
@@ -330,8 +338,8 @@
         "explanation": "/sys, /proc and /dev are mounted during the boot (sysfs etc.)"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       0
     ]
@@ -364,8 +372,8 @@
         "explanation": "System V (SysV) was the most common Linux / Unix init system for a long time. Although there where several SysV Init replacement over the years most kept compatible with SysV."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       0,
       1,
@@ -400,8 +408,8 @@
         "explanation": "The MBR consists of 512 or more bytes and is located in the first sector of the device"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       4
     ]
@@ -434,8 +442,8 @@
         "explanation": ""
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       2
     ]
@@ -468,8 +476,8 @@
         "explanation": ""
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       3
     ]
@@ -502,8 +510,8 @@
         "explanation": "No"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       3
     ]
@@ -536,8 +544,8 @@
         "explanation": "dmesg (display / driver message) in the command that prints the message buffer of the Kernel."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Kernel",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       4
     ]
@@ -570,8 +578,8 @@
         "explanation": "Correct, systemd-journal stores logs in a binray format (Journal File Format)"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Init",
+    "category": "lpic-101",
+    "tags": ["init"],
     "resolution": [
       2,
       4
@@ -605,8 +613,8 @@
         "explanation": "Correct, the Linux Kernel is a monolithic one, handling most things, like process management, in the kernel space."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Kernel",
+    "category": "lpic-101",
+    "tags": ["kernel"],
     "resolution": [
       4
     ]
@@ -643,8 +651,8 @@
         "explanation": "This would reboot the system in one minute, not immediately!"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Init",
+    "category": "lpic-101",
+    "tags": ["init"],
     "resolution": [
       1,
       2
@@ -678,8 +686,8 @@
         "explanation": "With SysVInit this would change to the fifth run level of the system."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "101.1",
+    "category": "lpic-101",
+    "tags": ["init"],
     "resolution": [
       3
     ]
@@ -712,8 +720,8 @@
         "explanation": "This is the configuration file of the bootloader, not the init system."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Init",
+    "category": "lpic-101",
+    "tags": ["init"],
     "resolution": [
       3
     ]
@@ -746,8 +754,8 @@
         "explanation": "This would power off the system in 300 minutes."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Init",
+    "category": "lpic-101",
+    "tags": ["init"],
     "resolution": [
       3
     ]
@@ -780,8 +788,8 @@
         "explanation": "This would be a windows command."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       2,
       3
@@ -815,8 +823,8 @@
         "explanation": "As the apache2 executable is not mandatory for a system boot, it is normally contained in /usr/bin."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Filesystem",
+    "category": "lpic-101",
+    "tags": ["filesystem"],
     "resolution": [
       4
     ]
@@ -849,8 +857,8 @@
         "explanation": "Correct, the GRand Unified Bootloader configuration can be found there since version 2 (1.98)"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       4
     ]
@@ -883,8 +891,8 @@
         "explanation": "This command does not exist."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Filesystem",
+    "category": "lpic-101",
+    "tags": ["filesystem"],
     "resolution": [
       2
     ]
@@ -917,8 +925,8 @@
         "explanation": "This is partition type is used for Windows NTFS and exFAT systems."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Filesystem",
+    "category": "lpic-101",
+    "tags": ["filesystem"],
     "resolution": [
       2
     ]
@@ -934,8 +942,8 @@
     "resolution": [
       "/boot"
     ],
-    "category": "LPIC 101",
-    "tags": "Filesystem"
+    "category": "lpic-101",
+    "tags": ["filesystem"]
   },
   {
     "title": "Which manual shows information about the Linux filesystem hierachy? (Name of the manual page only)",
@@ -949,8 +957,8 @@
         "explanation": ""
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Filesystem",
+    "category": "lpic-101",
+    "tags": ["filesystem"],
     "resolution": [
       "hier"
     ]
@@ -983,14 +991,16 @@
         "explanation": "No, the rEFInd uses an ini like syntax"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       3
     ]
   },
   {
-    "title": "How do you create a LVM2 volume group?",
+    "title": "How do you create an LVM2 volume group?",
+    "category": "lpic-101",
+    "tags": ["filesystem"],
     "explanation": "",
     "code_block": "",
     "kind": "single",
@@ -1023,15 +1033,13 @@
   },
   {
     "title": "How do you generate the GRUB configuration? (Version 2, Command only, no parameters)",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "explanation": "grub-mkconfig -o /boot/grub/grub.cfg - grub-mkconfig generates the GRUB2 configuration and prints it to the standard output.",
     "code_block": "",
     "kind": "text",
     "difficulty": "7",
     "answers": [
-      {
-        "content": "",
-        "explanation": ""
-      }
     ],
     "resolution": [
       "grub-mkconfig"
@@ -1040,6 +1048,8 @@
   },
   {
     "title": "How do you install Grub into the MBR of the first mass storage device?",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "explanation": "",
     "code_block": "",
     "kind": "single",
@@ -1098,8 +1108,8 @@
         "explanation": "This would output the last 512 lines of the device."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Boot",
+    "category": "lpic-101",
+    "tags": ["boot"],
     "resolution": [
       0
     ]
@@ -1132,23 +1142,21 @@
         "explanation": "Correct. shared libraries end with .so (shared object)"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Library",
+    "category": "lpic-101",
+    "tags": ["library"],
     "resolution": [
       4
     ]
   },
   {
     "title": "Which command probably generated the following output? (Command only)",
+    "category": "lpic-101",
+    "tags": ["library"],
     "explanation": "ldd prints shared object / library dependencies. `ldd $(which cp)`",
     "code_block": "linux-vdso.so.1 (0x00007ffe5e995000)\nlibacl.so.1 => /lib64/libacl.so.1 (0x00007fd72d962000)\nlibattr.so.1 => /lib64/libattr.so.1 (0x00007fd72d75c000)\nlibc.so.6 => /lib64/libc.so.6 (0x00007fd72d587000)\n/lib64/ld-linux-x86-64.so.2 (0x00007fd72dbc4000)",
     "kind": "text",
     "difficulty": "7",
     "answers": [
-      {
-        "content": "",
-        "explanation": ""
-      }
     ],
     "resolution": [
       "ldd"
@@ -1182,8 +1190,8 @@
         "explanation": "Correct, strings prints printable characters in files with at least 4 characters by default. Also useful for data files etc."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Libaray",
+    "category": "lpic-101",
+    "tags": ["library"],
     "resolution": [
       4
     ]
@@ -1216,8 +1224,8 @@
         "explanation": "This is the configuration file for the Gentoo portage / emerge system."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Apt",
+    "category": "lpic-101",
+    "tags": ["package"],
     "resolution": [
       0
     ]
@@ -1250,8 +1258,8 @@
         "explanation": "This command is not existing"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Apt",
+    "category": "lpic-101",
+    "tags": ["package"],
     "resolution": [
       0
     ]
@@ -1284,14 +1292,14 @@
         "explanation": "apt-get autoclean would remove packages which are no longer in use."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Apt",
+    "category": "lpic-101",
+    "tags": ["package"],
     "resolution": [
       2
     ]
   },
   {
-    "title": "How could you reconfigure your available languages on a Debian system?",
+    "title": "How can you reconfigure the available languages on a Debian system?",
     "explanation": "",
     "code_block": "",
     "kind": "single",
@@ -1318,8 +1326,8 @@
         "explanation": "This would overwrite the LANG environment variable (/etc/locale.conf) to a new language, but not add any new."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Apt",
+    "category": "lpic-101",
+    "tags": ["package"],
     "resolution": [
       1
     ]
@@ -1352,8 +1360,8 @@
         "explanation": "dpkg -l shows the installed packages, as an alternative you can also use dpkg --get-selections."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Apt",
+    "category": "lpic-101",
+    "tags": ["package"],
     "resolution": [
       4
     ]
@@ -1394,8 +1402,8 @@
         "explanation": "rpm is the RPM package manager (like dpkg) for distributions using rpm files."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Apt",
+    "category": "lpic-101",
+    "tags": ["package"],
     "resolution": [
       0,
       1,
@@ -1430,8 +1438,8 @@
         "explanation": "This does not exist."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Yum",
+    "category": "lpic-101",
+    "tags": ["package"],
     "resolution": [
       1
     ]
@@ -1464,8 +1472,8 @@
         "explanation": "This would install an rpm package."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Rpm",
+    "category": "lpic-101",
+    "tags": ["package", "yum"],
     "resolution": [
       0
     ]
@@ -1478,8 +1486,8 @@
     "difficulty": "4",
     "answers": [
     ],
-    "category": "LPIC 101",
-    "tags": "Yum",
+    "category": "lpic-101",
+    "tags": ["package", "yum"],
     "resolution": [
       "yum"
     ]
@@ -1516,8 +1524,8 @@
         "explanation": "The ~/.xinitrc is used to run (GUI) programs and set environment variables on the X server (xorg) startup."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Bash",
+    "category": "lpic-101",
+    "tags": ["bash"],
     "resolution": [
       1,
       3
@@ -1551,8 +1559,8 @@
         "explanation": "Prints system and Kernel information"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Bash",
+    "category": "lpic-101",
+    "tags": ["bash"],
     "resolution": [
       2
     ]
@@ -1589,8 +1597,8 @@
         "explanation": "This would screw up your PATH variable with the text PATH and your users bin folder."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Bash",
+    "category": "lpic-101",
+    "tags": ["bash"],
     "resolution": [
       4
     ]
@@ -1606,8 +1614,8 @@
     "resolution": [
       "LANG"
     ],
-    "category": "LPIC 101",
-    "tags": "Bash"
+    "category": "lpic-101",
+    "tags": ["bash"]
   },
   {
     "title": "How can you display all environment variables?",
@@ -1637,8 +1645,8 @@
         "explanation": "Correct env without options will print the Environment variables."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Bash",
+    "category": "lpic-101",
+    "tags": ["bash"],
     "resolution": [
       3,
       4
@@ -1646,6 +1654,8 @@
   },
   {
     "title": "Which command shows you the full path of a command (e.g. /bin/ls)?",
+    "category": "lpic-101",
+    "tags": ["bash"],
     "explanation": "`which` shows the full path of commands. `whereis` would also show you other paths (like to the man page)",
     "code_block": "",
     "kind": "text",
@@ -1684,8 +1694,8 @@
         "explanation": "The bashrc contains is the users startup file for the Bash."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Bash",
+    "category": "lpic-101",
+    "tags": ["bash"],
     "resolution": [
       3
     ]
@@ -1711,21 +1721,21 @@
       },
       {
         "content": "4",
-        "explanation": "4 is for special files (/dev normally)"
+        "explanation": "4 is for special files (mostly files in /dev)"
       },
       {
         "content": "5",
         "explanation": "5 is for file formats and file descriptions, like /etc/fstab - man fstab"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Man",
+    "category": "lpic-101",
+    "tags": ["man"],
     "resolution": [
       4
     ]
   },
   {
-    "title": "Which of the following will output your current directory position on the shell?",
+    "title": "Which of the following will print your current directory position on the shell?",
     "explanation": "",
     "code_block": "",
     "kind": "multiple",
@@ -1756,8 +1766,8 @@
         "explanation": "whereis locates binary, source and the manual page files for a command."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Bash",
+    "category": "lpic-101",
+    "tags": ["bash"],
     "resolution": [
       0,
       1,
@@ -1765,15 +1775,15 @@
     ]
   },
   {
-    "title": "Which command probably outputed the following? (No parameters, command only)",
+    "title": "Which command probably printed the following? (No parameters, command only)",
     "explanation": "uname -a displays the Kernel version, the architecture, the hostname and some other information about the system.",
     "code_block": "Linux byteeTR2 5.1.0-gentoo #1 SMP PREEMPT Wed May 8 08:03:10 CEST 2019 x86_64 AMD Ryzen Threadripper 2990WX 32-Core Processor AuthenticAMD GNU/Linux\n",
     "kind": "text",
     "difficulty": "6",
     "answers": [
     ],
-    "category": "LPIC 101",
-    "tags": "Kernel",
+    "category": "lpic-101",
+    "tags": ["kernel"],
     "resolution": [
       "uname"
     ]
@@ -1783,7 +1793,9 @@
     "explanation": "",
     "code_block": "$ EXAM=\"LPIC 101\"\n$ echo 'Exam: \"$EXAM\"'",
     "kind": "single",
-    "difficulty": "5",
+    "difficulty": 6,
+    "category": "lpic-101",
+    "tags": ["bash"],
     "answers": [
       {
         "content": "Exam: \"$EXAM\"",
@@ -1812,15 +1824,13 @@
   },
   {
     "title": "How do you get the MD5 checksum of a file for validating a download? (Command only)",
+    "category": "lpic-101",
+    "tags": ["command"],
     "explanation": "md5sum file would give you the md5 checksum a file.",
     "code_block": "",
     "kind": "text",
     "difficulty": "5",
     "answers": [
-      {
-        "content": "",
-        "explanation": ""
-      }
     ],
     "resolution": [
       "md5sum"
@@ -1834,8 +1844,8 @@
     "difficulty": "3",
     "answers": [
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["Command"],
     "resolution": [
       "head"
     ]
@@ -1848,8 +1858,8 @@
     "difficulty": "3",
     "answers": [
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["Command"],
     "resolution": [
       "tail"
     ]
@@ -1859,7 +1869,7 @@
     "explanation": "",
     "code_block": "",
     "kind": "single",
-    "difficulty": "2",
+    "difficulty": "3",
     "answers": [
       {
         "content": "nl",
@@ -1882,8 +1892,8 @@
         "explanation": "tr replaces or deletes characters."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       1
     ]
@@ -1916,8 +1926,8 @@
         "explanation": "No, the syntax is correct."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       3
     ]
@@ -1954,8 +1964,8 @@
         "explanation": "nl numbers lines."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       3
     ]
@@ -1992,8 +2002,8 @@
         "explanation": "Touch can do that."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       1,
       4
@@ -2015,8 +2025,8 @@
         "explanation": "There is no parameter -r for mv."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       1
     ]
@@ -2029,8 +2039,8 @@
     "difficulty": "3",
     "answers": [
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       "file"
     ]
@@ -2063,8 +2073,8 @@
         "explanation": "No"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       2
     ]
@@ -2074,7 +2084,7 @@
     "explanation": "",
     "code_block": "",
     "kind": "single",
-    "difficulty": "4",
+    "difficulty": "5",
     "answers": [
       {
         "content": "tar xf backup.tar ~",
@@ -2097,8 +2107,8 @@
         "explanation": "This is create a backup of your home directory to the backup.tar file. (create, verbose, file)"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       4
     ]
@@ -2131,8 +2141,8 @@
         "explanation": "Correct, bunzip2 is existing."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       1,
       2,
@@ -2155,8 +2165,8 @@
         "explanation": "Yes, you need to add -p or --parents in order to create needed parent directories."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       1
     ]
@@ -2193,14 +2203,14 @@
         "explanation": "No, finds syntax requires the folder to search for before the expression."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       0
     ]
   },
   {
-    "title": "Which of the following would redirect the standard and error output?",
+    "title": "Which of the following redirects the standard and error output to a file?",
     "explanation": "",
     "code_block": "",
     "kind": "single",
@@ -2227,14 +2237,14 @@
         "explanation": "This redirects the standard and error output."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Redirect",
+    "category": "lpic-101",
+    "tags": ["redirect"],
     "resolution": [
       4
     ]
   },
   {
-    "title": "Which of the following prints and outputs to file simultaneously?",
+    "title": "Which of the following prints to stdout and writes to a file simultaneously?",
     "explanation": "",
     "code_block": "",
     "kind": "single",
@@ -2257,8 +2267,8 @@
         "explanation": "xargs buils command line options from the standard input."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["redirect"],
     "resolution": [
       2
     ]
@@ -2268,7 +2278,7 @@
     "explanation": "",
     "code_block": "",
     "kind": "single",
-    "difficulty": "3",
+    "difficulty": "5",
     "answers": [
       {
         "content": "-9",
@@ -2291,8 +2301,8 @@
         "explanation": "This is the default signal send, if no other specified. It's called SIGTERM."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       4
     ]
@@ -2329,8 +2339,8 @@
         "explanation": "While kill could kill a running job, it does not belong to the builtin bash job commands."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Bash",
+    "category": "lpic-101",
+    "tags": ["bash"],
     "resolution": [
       0,
       1,
@@ -2353,8 +2363,8 @@
         "explanation": "No, bg is no stand alone executable. (which bg)"
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Bash",
+    "category": "lpic-101",
+    "tags": ["bash"],
     "resolution": [
       0
     ]
@@ -2367,14 +2377,16 @@
     "difficulty": "4",
     "answers": [
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       "free"
     ]
   },
   {
     "title": "How can you view all running processes?",
+    "category": "lpic-101",
+    "tags": ["command"],
     "explanation": "",
     "code_block": "",
     "kind": "multiple",
@@ -2407,7 +2419,7 @@
     ]
   },
   {
-    "title": "Which command allows you to periodically execute a program and look at it's output (For example ps every 5 seconds)? (Command only)",
+    "title": "Which command allows you to periodically execute a program and monitor at it's output (For example ps every 5 seconds)? (Command only)",
     "explanation": "watch allows to execute a program periodically and prints it output full screen. (every 2 seconds by default)",
     "code_block": "",
     "kind": "text",
@@ -2418,8 +2430,8 @@
         "explanation": ""
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       "watch"
     ]
@@ -2436,14 +2448,16 @@
         "explanation": ""
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       "uptime"
     ]
   },
   {
     "title": "Which of the following are valid nice values?",
+    "category": "lpic-101",
+    "tags": ["nice"],
     "explanation": "",
     "code_block": "",
     "kind": "multiple",
@@ -2486,6 +2500,8 @@
   },
   {
     "title": "Which of the following commands allows you to change the nice value of a running command?",
+    "category": "lpic-101",
+    "tags": ["command", "nice"],
     "explanation": "",
     "code_block": "",
     "kind": "single",
@@ -2532,8 +2548,8 @@
         "explanation": "No."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Regex",
+    "category": "lpic-101",
+    "tags": ["regex"],
     "resolution": [
       0
     ]
@@ -2554,8 +2570,8 @@
         "explanation": "It would match unlimited a's. The * matches zero or more occurrences of the previous character."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Regex",
+    "category": "lpic-101",
+    "tags": ["regex"],
     "resolution": [
       1
     ]
@@ -2565,15 +2581,11 @@
     "explanation": "The $ matches the end of lines.",
     "code_block": "",
     "kind": "text",
-    "difficulty": "4",
+    "difficulty": "7",
     "answers": [
-      {
-        "content": "",
-        "explanation": ""
-      }
     ],
-    "category": "LPIC 101",
-    "tags": "Regex",
+    "category": "lpic-101",
+    "tags": ["regex"],
     "resolution": [
       "$"
     ]
@@ -2583,7 +2595,7 @@
     "explanation": "",
     "code_block": "",
     "kind": "single",
-    "difficulty": "3",
+    "difficulty": "4",
     "answers": [
       {
         "content": "^",
@@ -2606,8 +2618,8 @@
         "explanation": "Matches any of the character gives in the brackets. [a-z] matches all lower case characters."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Regex",
+    "category": "lpic-101",
+    "tags": ["regex"],
     "resolution": [
       0
     ]
@@ -2619,13 +2631,9 @@
     "kind": "text",
     "difficulty": "2",
     "answers": [
-      {
-        "content": "",
-        "explanation": ""
-      }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["regex", "command"],
     "resolution": [
       "grep"
     ]
@@ -2639,15 +2647,15 @@
     "answers": [
       {
         "content": "-i",
-        "explanation": "-i makes the search ignoring the case."
+        "explanation": "-i makes the search case insensitive."
       },
       {
         "content": "-v",
-        "explanation": "-v inverts the sense of matching."
+        "explanation": "-v inverts the result."
       },
       {
         "content": "-r",
-        "explanation": "-r recursively searchs all files under the directory."
+        "explanation": "-r recursively searches all files under the directory."
       },
       {
         "content": "-A",
@@ -2658,8 +2666,8 @@
         "explanation": "-B 3 would also show 3 lines before a match."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Commands",
+    "category": "lpic-101",
+    "tags": ["command"],
     "resolution": [
       1
     ]
@@ -2692,8 +2700,8 @@
         "explanation": "l would navigate the cursor one to the right."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "vi",
+    "category": "lpic-101",
+    "tags": ["vi"],
     "resolution": [
       1
     ]
@@ -2706,8 +2714,8 @@
     "difficulty": "4",
     "answers": [
     ],
-    "tags": "Bash",
-    "category": "LPIC 101",
+    "tags": ["bash"],
+    "category": "lpic-101",
     "resolution": [
       "EDITOR"
     ]
@@ -2720,8 +2728,8 @@
     "difficulty": "4",
     "answers": [
     ],
-    "category": "LPIC 101",
-    "tags": "Vi",
+    "category": "lpic-101",
+    "tags": ["vi"],
     "resolution": [
       "dd"
     ]
@@ -2731,7 +2739,7 @@
     "explanation": "",
     "code_block": "",
     "kind": "multiple",
-    "difficulty": "2",
+    "difficulty": "4",
     "answers": [
       {
         "content": "FAT",
@@ -2758,8 +2766,8 @@
         "explanation": "This is tricky, the license ZFS is licensed under (CDDL) is not compatible to the GPLv2 the Linux Kernel uses, because of that ZFS support is not shipped in Linux directly."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Filesystem",
+    "category": "lpic-101",
+    "tags": ["filesystem"],
     "resolution": [
       2,
       3
@@ -2793,8 +2801,8 @@
         "explanation": "With mkswap you would create a swap partition."
       }
     ],
-    "category": "LPIC 101",
-    "tags": "Filesystem",
+    "category": "lpic-101",
+    "tags": ["filesystem"],
     "resolution": [
       0
     ]
@@ -2807,8 +2815,8 @@
     "difficulty": "7",
     "answers": [
     ],
-    "category": "LPIC 101",
-    "tags": "Filesystem",
+    "category": "lpic-101",
+    "tags": ["filesystem"],
     "resolution": [
       "fsck",
       "fsck.ext4"
