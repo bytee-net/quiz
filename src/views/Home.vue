@@ -48,7 +48,7 @@
   <!-- Quiz Nav, TODO MOVE -->
   <div class="quiz-nav" v-if="numQuestion !== -1 && numQuestion !== questions.length">
     <div class="columns">
-      <div class="column col-8">
+      <div class="column col-8 col-sm-auto">
         <button
             class="btn btn-primary"
             v-if="!resolveResolution && numQuestion !== 0"
@@ -79,7 +79,7 @@
           Back to the Results
         </button>
       </div>
-      <div class="column col-4 text-right">
+      <div class="column col-4 col-sm-auto text-right">
         <router-link to="/suggest" target="_blank">Suggest Question</router-link>
         |
         <router-link :to="{name: 'report', params: { question: activeQuestion.title } }"

@@ -98,4 +98,20 @@
     border: 2px solid #36bf42;
     background: #6ed97b;
   }
+
+  /* Some responsive improvements */
+  /* Portrait and Landscape */
+  @media only screen
+  and (max-device-width: 812px) {
+    #app {
+      border: 0;
+      padding: 5px;
+      margin: 0 auto;
+    }
+
+    .btn-primary {
+      display: block;
+      margin: 5px 0;
+    }
+  }
 </style>

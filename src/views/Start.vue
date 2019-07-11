@@ -2,7 +2,7 @@
 <div class="quiz-start">
   <h1>{{quiz.title}}</h1>
 
-  <div class="quiz-description col-7">
+  <div class="quiz-description col-7 col-sm-auto">
     {{quiz.description}}
   </div>
 
