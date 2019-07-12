@@ -221,11 +221,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-  .suggestion-answer {
-    margin: 5px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-</style>

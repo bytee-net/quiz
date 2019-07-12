@@ -99,6 +99,13 @@
     background: #6ed97b;
   }
 
+  /* Suggest */
+  .suggestion-answer {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+
   /* Some responsive improvements */
   /* Portrait and Landscape */
   @media only screen
