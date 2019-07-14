@@ -112,6 +112,11 @@ export default {
     Start,
   },
   created() {
+    if (window.Quiz.customizeQuiz) {
+      this.$router.push('/customize');
+      return;
+    }
+
     // Very simple load
     this.$http
       .get(this.quiz.questionsEndpoint)
@@ -253,7 +258,7 @@ export default {
 
       // Report users result
       this.$http
-        .post(window.Quiz.statisticEndpoint, this.questions)
+        .post(`${window.Quiz.apiEndpoint}/stats`, this.questions)
         .then(() => {
         })
         .catch((error) => {

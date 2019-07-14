@@ -18,24 +18,21 @@
     duration: 30,
     // Randomize the quiz and questions (if the pool is larger)
     randomize: true,
-    // Link to a JSON file or API server
+    // API Endpoint for reporting or suggesting questions (Quiz server)
+    apiEndpoint: 'http://localhost:3000',
+    // Link to a JSON file or REST API server
     // questionsEndpoint: '/sample-questions-lpic101.json',
     questionsEndpoint: 'http://localhost:3000/questions',
-    // URL where suggestions should posted to (see swagger)
-    suggestionEndpoint: 'http://localhost:3000/suggest',
-    // URL where reports should be posted to (see swagger)
-    reportEndpoint: 'http://localhost:3000/report',
-    // Statistic endpoint (Sends the quiz result to the endpoint in order to be able to track question difficulty - see swagger)
-    statisticEndpoint: 'http://localhost:3000/stats',
+    // Show the custom Quiz builder on startup and not the Quiz
+    // customizeQuiz: true
   };
   </script>
 </head>
 <body>
 <noscript>
-  <strong>We're sorry but vue-quiz doesn't work properly without JavaScript enabled. Please enable
+  <strong>We're sorry but the Quiz doesn't work properly without JavaScript enabled. Please enable
     it to continue.</strong>
 </noscript>
 <div id="app"></div>
-<!-- built files will be auto injected -->
 </body>
 </html>

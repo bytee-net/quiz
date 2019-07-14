@@ -43,7 +43,7 @@ export default {
 
       // For now
       this.$http
-        .post(window.Quiz.reportEndpoint, this.report)
+        .post(`${window.Quiz.apiEndpoint}/report`, this.report)
         .then((response) => {
           this.showThankYou = true;
         })

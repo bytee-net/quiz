@@ -34,4 +34,8 @@ export default {
     font-size: 1.2rem;
     cursor: pointer;
   }
+
+  #error-handler {
+    margin: 15px 0;
+  }
 </style>

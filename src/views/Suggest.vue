@@ -168,7 +168,7 @@ export default {
 
       // For now
       this.$http
-        .post(window.Quiz.suggestionEndpoint, submission)
+        .post(`${window.Quiz.apiEndpoint}/suggest`, submission)
         .then((response) => {
           this.showThankYou = true;
           this.resetForm(this.suggestion);
