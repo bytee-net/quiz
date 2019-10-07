@@ -21,30 +21,7 @@ Simple Quiz app powered by Vue.js and Spectre.css.
 
 Instead of simple JSON files for the questions, you can also use the nodejs powered [quiz server](https://github.com/bytee-net/quiz-server).
 
-### Setup
-
-Install the dependencies first with npm or yarn.
-
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-#### Question JSON markup
+### Question JSON markup
 
 Questions follow a simple JSON format, the "Suggest question" view can generate the correct markup for you.
 
@@ -80,4 +57,27 @@ Check the [demo quiz json file](https://github.com/bytee-net/quiz/blob/master/pu
     ]
   }
 ]
+```
+
+### Setup
+
+Install the dependencies first with npm or yarn.
+
+```
+npm install
+```
+
+#### Compile and hot-reload for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
 ```
