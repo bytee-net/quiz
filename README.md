@@ -1,22 +1,29 @@
 # Vue Quiz
 
-Simple quiz powered by Vue.js and spectre.css.
+Simple Quiz app powered by Vue.js and Spectre.css.
+
+[Demo Quiz](https://bytee.net/quiz/lpic-1-exam-102#/)
 
 #### Features
 
-* Simple JSON endpoints
-* Option to only use JSON based question files.
+* Easy to use and fast integration into websites.
 * Single-Choice, Multiple-Choice and Fill-the-blank question support.
-* Timer & Question counter
+* Simple JSON endpoints
+* Option to use JSON files, instead of an full blown API server.
+* Timer and Question counter
 * Randomize Questions and answers
 * Explanations for answers
 * Score based results
 * Suggest question form
 * Report question form
 
+#### Quiz server
+
+Instead of simple JSON files for the questions, you can also use the nodejs powered [quiz server](https://github.com/bytee-net/quiz-server).
+
 ## Project setup
 
-Install dependencies first.
+Install the dependencies first with npm or yarn.
 
 ```
 npm install
@@ -44,6 +51,7 @@ Questions use simple JSON format, the Suggest question view can generate the mar
 Check the demo quiz supplied in /public for more examples.
 
 ```json
+[
   {
     "title": "Question text.",
     // Type of the question
@@ -76,4 +84,5 @@ Check the demo quiz supplied in /public for more examples.
       }
     ]
   }
+]
 ```
