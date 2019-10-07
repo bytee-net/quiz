@@ -82,7 +82,7 @@
       <div class="column col-4 col-sm-auto text-right">
         <router-link to="/suggest" target="_blank">Suggest Question</router-link>
         |
-        <router-link :to="{name: 'report', params: { question: activeQuestion.title } }"
+        <router-link :to="{name: 'report', params: { id: activeQuestion._id } }"
                      target="_blank">
           Report Question
         </router-link>

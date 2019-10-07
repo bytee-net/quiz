@@ -8,5 +8,11 @@ module.exports = {
     config.optimization.splitChunks(false);
     config.optimization.delete('splitChunks');
     config.plugins.delete('prefetch');
+
+    // Build without spectre.css
+    // config.module
+    //   .rule('css')
+    //   .exclude
+    //   .add(new RegExp(/spectre.min.css/gi)).end();
   },
 };

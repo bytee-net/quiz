@@ -58,7 +58,7 @@ export default {
       report: {
         email: '',
         comment: '',
-        question: this.$route.params,
+        question: this.$route.params.id,
       },
 
       showThankYou: false,

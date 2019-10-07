@@ -20,7 +20,7 @@ export default new Router({
       component: Suggest,
     },
     {
-      path: '/report',
+      path: '/report/:id',
       name: 'report',
       component: Report,
     },
