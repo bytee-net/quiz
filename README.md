@@ -2,9 +2,9 @@
 
 Simple Quiz app powered by Vue.js and Spectre.css.
 
-[Demo Quiz](https://bytee.net/quiz/lpic-1-exam-102#/)
+[Demo](https://bytee.net/quiz/lpic-1-exam-102#/)
 
-#### Features
+### Features
 
 * Easy to use and fast integration into websites.
 * Single-Choice, Multiple-Choice and Fill-the-blank question support.
@@ -17,11 +17,11 @@ Simple Quiz app powered by Vue.js and Spectre.css.
 * Suggest question form
 * Report question form
 
-#### Quiz server
+### Quiz server
 
 Instead of simple JSON files for the questions, you can also use the nodejs powered [quiz server](https://github.com/bytee-net/quiz-server).
 
-## Project setup
+### Setup
 
 Install the dependencies first with npm or yarn.
 
@@ -44,27 +44,22 @@ npm run build
 npm run lint
 ```
 
-## Question JSON markup
+#### Question JSON markup
 
-Questions use simple JSON format, the Suggest question view can generate the markup for you.
+Questions follow a simple JSON format, the "Suggest question" view can generate the correct markup for you.
 
-Check the demo quiz supplied in /public for more examples.
+Check the [demo quiz json file](https://github.com/bytee-net/quiz/blob/master/public/sample-questions-lpic101.json) in the /public folder for more examples.
 
-```json
+```javascript
 [
   {
-    "title": "Question text.",
-    // Type of the question
+    "title": "Question text?",
     "kind": "single|multiple|text",
-    // Shown below the question if any
     "code_block": "",
-    // Which answer is correct (index, starts with zero)
     "resolution": [
       3
     ],
-    // Simple rating (1 easy to 10 hard), used in stats
-    "difficulty": "3",
-    // Answers (if you use randomize, they are shuffled)
+    "difficulty": "5",
     "answers": [
       {
         "content": "-h",
