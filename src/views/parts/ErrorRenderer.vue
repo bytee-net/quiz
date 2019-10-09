@@ -7,11 +7,18 @@
     </div>
 
     <div v-if="typeof message == 'object'">
-      <h5>Api Error</h5>
-      {{message.response.status}} - {{message.response.statusText}}
-      <br />
-      {{message.response.data}}
+      <div v-if="message.response">
+        <h5>Api Error</h5>
+        {{message.response.status}} - {{message.response.statusText}}
+        <br />
+        {{message.response.data}}
+        </div>
+      <div v-else>
+        <h5>Error</h5>
+        {{message.message}}
+      </div>
     </div>
+
   </div>
 </template>
 
