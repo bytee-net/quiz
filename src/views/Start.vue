@@ -20,11 +20,14 @@ export default {
 </script>
 
 <style scoped>
-  .btn-quiz-start {
-    padding: 6px 25px;
+  .quiz-start {
+    padding: 20px;
   }
 
-  .quiz-start h1 {
+  .btn-quiz-start {
+    margin-top: 20px;
+    padding: 6px 25px 15px;
+    height: 2rem;
   }
 
   .quiz-start h1:after {
@@ -38,12 +41,5 @@ export default {
     border-bottom: 3px solid #5755d9;
     margin: 0;
     padding: 8px 0;
-  }
-
-  .quiz-nav {
-    margin-top: 20px;
-  }
-
-  .quiz-description {
   }
 </style>

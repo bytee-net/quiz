@@ -12,11 +12,12 @@
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    border: 1px solid #ccc;
+    -webkit-box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.05);
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.05);
     margin: 10px auto;
-    padding: 10px;
+    padding: 15px 20px;
     line-height: 1.4rem;
-    max-width: 1024px;
+    max-width: 960px;
   }
 
   /* spectre.css overwrites */
@@ -34,7 +35,7 @@
   }
 
   .quiz-answers {
-    margin: 30px 0;
+    margin: 35px 0;
   }
 
   /* Buttons (Answers) */
@@ -119,6 +120,10 @@
     .btn-primary {
       display: block;
       margin: 5px 0;
+    }
+
+    .btn {
+      width: 100%;
     }
   }
 </style>

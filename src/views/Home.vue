@@ -48,7 +48,7 @@
   <!-- Quiz Nav, TODO MOVE -->
   <div class="quiz-nav" v-if="numQuestion !== -1 && numQuestion !== questions.length">
     <div class="columns">
-      <div class="column col-8 col-sm-auto">
+      <div class="column col-8 col-md-12">
         <button
             class="btn btn-primary"
             v-if="!resolveResolution && numQuestion !== 0"
@@ -79,7 +79,7 @@
           Back to the Results
         </button>
       </div>
-      <div class="column col-4 col-sm-auto text-right">
+      <div class="column col-4 col-md-auto text-right" v-if="quiz.apiEndpoint">
         <router-link to="/suggest" target="_blank">Suggest Question</router-link>
         |
         <router-link :to="{name: 'report', params: { id: activeQuestion._id } }"
@@ -124,6 +124,9 @@ export default {
         this.prepareQuiz(response.data);
       })
       .catch((error) => {
+        console.log(JSON.stringify(error.response));
+        console.log(error);
+
         this.errorMessage = error;
         this.errorSeverity = 'error';
       });
