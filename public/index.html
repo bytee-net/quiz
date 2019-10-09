@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Bytee.net Vue.js Quiz</title>
+  <title>Sample Vue.js Quiz</title>
   <script>
   // Sample Quiz with LPIC-1 Exam 101 Questions bundled
   window.Quiz = {
@@ -19,6 +19,7 @@
     // Randomize the quiz and questions (if the pool is larger)
     randomize: true,
     // API Endpoint for reporting or suggesting questions (Quiz server)
+    // Without, reporting or suggesting questions isn't possible.
     apiEndpoint: 'http://localhost:3000',
     // Link to a JSON file or REST API server
     // questionsEndpoint: '/sample-questions-lpic101.json',

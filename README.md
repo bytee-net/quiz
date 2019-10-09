@@ -27,7 +27,7 @@ Questions follow a simple JSON format, the "Suggest question" view can generate 
 
 Check the [demo quiz json file](https://github.com/bytee-net/quiz/blob/master/public/sample-questions-lpic101.json) in the /public folder for more examples.
 
-```javascript
+```json
 [
   {
     "title": "Question text?",
