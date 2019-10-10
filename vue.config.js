@@ -15,4 +15,12 @@ module.exports = {
     //   .exclude
     //   .add(new RegExp(/spectre.min.css/gi)).end();
   },
+  pluginOptions: {
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableInSFC: false,
+    },
+  },
 };

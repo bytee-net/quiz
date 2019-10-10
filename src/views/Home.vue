@@ -5,10 +5,10 @@
 
   <div class="quiz-info" v-if="numQuestion !== -1 && numQuestion !== questions.length">
     <div class="columns">
-      <div class="quiz-question-number column col-6" title="Question number">
-        {{numQuestion + 1}} of {{questions.length}}
+      <div class="quiz-question-number column col-6" :title="$t('question_number')">
+        {{numQuestion + 1}} {{ $t('of') }} {{questions.length}}
       </div>
-      <div v-show="!resolveResolution" title="Time left in minutes"
+      <div v-show="!resolveResolution" :title="$t('time_left')"
            class="quiz-time-left column col-6 text-right">
         <i class="fa fa-time"></i> {{timerText}}
       </div>
@@ -54,37 +54,37 @@
             v-if="!resolveResolution && numQuestion !== 0"
             @click="firstQuestion"
         >
-          Back to the Start
+          {{ $t('back_to_start') }}
         </button>
         <button
             class="btn btn-primary"
             v-if="!resolveResolution && numQuestion !== 0"
             @click="previousQuestion"
         >
-          Previous Question
+          {{ $t('previous_question') }}
         </button>
         <button
             class="btn btn-primary"
             v-if="!resolveResolution && numQuestion >= 0"
             @click="markQuestion"
         >
-          <span v-show="activeQuestion.marked">Clear Flag</span>
-          <span v-show="!activeQuestion.marked">Flag Question</span>
+          <span v-show="activeQuestion.marked">{{ $t('clear_flag') }}</span>
+          <span v-show="!activeQuestion.marked">{{ $t('flag_question') }}</span>
         </button>
         <button
             class="btn btn-primary"
             v-if="resolveResolution"
             @click="numQuestion = questions.length"
         >
-          Back to the Results
+          {{ $t('back_to_results') }}
         </button>
       </div>
       <div class="column col-4 col-md-auto text-right" v-if="quiz.apiEndpoint">
-        <router-link to="/suggest" target="_blank">Suggest Question</router-link>
+        <router-link to="/suggest" target="_blank">{{ $t('suggest_question') }}</router-link>
         |
         <router-link :to="{name: 'report', params: { id: activeQuestion._id } }"
                      target="_blank">
-          Report Question
+          {{ $t('report_question') }}
         </router-link>
       </div>
     </div>
@@ -124,9 +124,6 @@ export default {
         this.prepareQuiz(response.data);
       })
       .catch((error) => {
-        console.log(JSON.stringify(error.response));
-        console.log(error);
-
         this.errorMessage = error;
         this.errorSeverity = 'error';
       });

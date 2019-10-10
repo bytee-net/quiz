@@ -1,41 +1,41 @@
 <template>
 <div class="quiz-suggest">
-  <h3>Suggest a Question</h3>
+  <h3>{{ $t('suggest_question') }}</h3>
 
   <error-renderer :message="errorMessage" :severity="errorSeverity"
                   @close="errorMessage = ''"></error-renderer>
 
   <div class="toast toast-success thank-you-message" v-show="showThankYou">
-    Thank you for your suggestion!
+    {{ $t('thank_you_for_your_suggestion') }}
   </div>
 
   <div class="form-group">
-    <label for="email" class="form-label">Your Email address (optional)</label>
+    <label for="email" class="form-label">{{ $t('your_email') }} ({{ $t('optional') }})</label>
     <input type="text" id="email" v-model="suggestion.email" class="form-input"
            placeholder="contact@bytee.net">
   </div>
 
   <div class="form-group">
-    <label for="title" class="form-label">Question</label>
+    <label for="title" class="form-label">{{ $t('question') }}</label>
     <input id="title" type="text" placeholder="Text of the Question" class="form-input"
            v-model="suggestion.title">
   </div>
 
   <div class="form-group">
-    <label for="code_block" class="form-label">Optional code / output block</label>
+    <label for="code_block" class="form-label">{{ $t('optional_code_block') }}</label>
     <textarea id="code_block" v-model="suggestion.code_block" class="form-input"
               placeholder="For example for some lines of a file"></textarea>
   </div>
 
   <div class="form-group">
-    <label for="category" class="form-label">Category</label>
+    <label for="category" class="form-label">{{ $t('category') }}</label>
     <input id="category" type="text"
            placeholder="To which exam / topic does the Question belong? E.g. LPIC 101"
            class="form-input" v-model="suggestion.category">
   </div>
 
   <div class="form-group">
-    <label for="tags" class="form-label">Tags</label>
+    <label for="tags" class="form-label">{{ $t('tags') }}</label>
     <input id="tags" type="text"
            placeholder="Separate them with commas. E.g. Filesystem, Hardware etc."
            class="form-input"
@@ -43,9 +43,9 @@
   </div>
 
   <div class="form-group">
-    <label for="difficulty" class="form-label">Difficulty</label>
+    <label for="difficulty" class="form-label">{{ $t('difficulty') }}</label>
     <select id="difficulty" class="form-input" v-model="suggestion.difficulty">
-      <option value="0">0 (Very Easy)</option>
+      <option value="0">0 ({{ $t('very_easy') }})</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -55,54 +55,54 @@
       <option value="7">7</option>
       <option value="8">8</option>
       <option value="9">9</option>
-      <option value="10">10 (Very Hard)</option>
+      <option value="10">10 ({{ $t('very_hard') }})</option>
     </select>
   </div>
 
   <div class="form-group">
-    <label for="kind" class="form-label">Question-Type</label>
+    <label for="kind" class="form-label">{{ $t('question_type') }}</label>
     <select id="kind" class="form-input" v-model="suggestion.kind">
-      <option value="">Please select</option>
-      <option value="multiple" selected="selected">Multiple-Choice Question</option>
-      <option value="single">Single-Choice Question</option>
-      <option value="text">Fill-in-the-blank Question</option>
+      <option value="">{{ $t('please_select') }}</option>
+      <option value="multiple" selected="selected">{{ $t('multiple_choice_question') }}</option>
+      <option value="single">{{ $t('single_choice_question') }}</option>
+      <option value="text">{{ $t('fill_in_the_blank_question') }}</option>
     </select>
   </div>
 
   <!-- TODO MOVE to own components -->
   <div class="text-question" v-show="suggestion.kind === 'text'">
     <div class="form-group">
-      <label for="resolution" class="form-label">Correct Answer</label>
+      <label for="resolution" class="form-label">{{ $t('correct_answer') }}</label>
       <input type="text" id="resolution" class="form-input" v-model="suggestion.resolution"
-             placeholder="Answer to the Question">
+             :placeholder="$t('answer_to_the_question')">
     </div>
 
     <div class="form-group">
-      <label for="explanation" class="form-label">Hint / Explanation</label>
+      <label for="explanation" class="form-label">{{ $t('explanation') }}</label>
       <input type="text" id="explanation" class="form-input" v-model="suggestion.explanation"
-             placeholder="Explain the correct answer.">
+             :placeholder="$t('explain_the_correct_answer')">
     </div>
   </div>
 
   <div class="single-question-answer"
        v-show="suggestion.kind === 'single' || suggestion.kind === 'multiple'">
-    <h5>Possible answers</h5>
+    <h5>{{ $t('possible_answers') }}</h5>
     <div class="columns suggestion-answer" v-for="(answer, index) in suggestion.answers"
          :key="answer.text">
       <div class="col col-11">
         <div class="form-group">
-          <label class="form-label">Option to choose from</label>
+          <label class="form-label">{{ $t('option_to_choose_from') }}</label>
           <input type="text" class="form-input" v-model="answer.content"
-                 placeholder="Answer for the Question">
+                 :placeholder="$t('answer_to_the_question')">
         </div>
         <div class="form-group">
-          <label class="form-label">Explanation why the answer is wrong / correct.</label>
+          <label class="form-label">{{ $t('explanation_why') }}</label>
           <input type="text" class="form-input" v-model="answer.explanation"
-                 placeholder="Hint / Explanation for the answer.">
+                 :placeholder="$t('hint_to_the_answer')">
         </div>
         <div class="form-group">
           <input type="checkbox" v-model="answer.isCorrect" :id="'answer-' + index">
-          <label :for="'answer-' + index"> Correct Answer</label>
+          <label :for="'answer-' + index"> {{ $t('correct_answer') }}</label>
         </div>
       </div>
       <div class="col col-1 text-right">
@@ -115,15 +115,15 @@
   </div>
 
   <div class="form-group">
-    <label for="comment" class="form-label">Comment</label>
+    <label for="comment" class="form-label">{{ $t('comment') }}</label>
     <textarea id="comment" type="text" placeholder="Some notes"
               class="form-input" v-model="suggestion.comment">
     </textarea>
   </div>
 
   <div class="quiz-nav">
-    <button class="btn btn-primary" @click="submit">Submit Question</button>
-    <router-link to="/" class="btn">Back to Quiz</router-link>
+    <button class="btn btn-primary" @click="submit">{{ $t('submit_question') }}</button>
+    <router-link to="/" class="btn">{{ $t('back_to_quiz') }}</router-link>
   </div>
 </div>
 </template>

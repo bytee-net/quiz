@@ -1,9 +1,9 @@
 <template>
   <div class="quiz-final">
-    <h3>Quiz complete</h3>
+    <h3>{{ $t('quiz_complete') }}</h3>
 
-    <h5 v-show="getMarkedQuestions().length">Questions flagged for review.</h5>
-    <h5 v-show="!getMarkedQuestions().length">No Questions flagged for review.</h5>
+    <h5 v-show="getMarkedQuestions().length">{{ $t('questions_flagged_for_review') }}</h5>
+    <h5 v-show="!getMarkedQuestions().length">{{ $t('no_questions_flagged_for_review') }}</h5>
 
     <div class="quiz-answers">
       <div v-for="(question) in getMarkedQuestions()"
@@ -17,10 +17,10 @@
 
     <div class="quiz-nav">
       <button class="btn btn-primary" @click="$emit('previousQuestion')">
-        Previous Question
+        {{ $t('previous_question') }}
       </button>
       <button class="btn btn-primary" @click="$emit('resolveQuiz')">
-        Finish Quiz
+        {{ $t('complete_quiz') }}
       </button>
     </div>
   </div>

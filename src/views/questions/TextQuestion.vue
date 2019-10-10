@@ -1,19 +1,19 @@
 <template>
 <div class="text-question quiz-answers">
   <input
-      type="text"
-      class="form-input"
-      placeholder="Your answer"
-      v-model="answer"
-      :class="getInputClass()"
-      :disabled="resolve"
+    type="text"
+    class="form-input"
+    :placeholder="$t('your_answer')"
+    v-model="answer"
+    :class="getInputClass()"
+    :disabled="resolve"
   >
   <blockquote class="quiz-explanation" v-if="resolve">
     <i class="icon icon-message"></i> {{ question.explanation }}
   </blockquote>
 
   <div class="text-question-answer text-right" v-show="!resolve">
-    <button class="btn btn-primary" @click="send">Answer</button>
+    <button class="btn btn-primary" @click="send">{{ $t('answer') }}</button>
   </div>
 </div>
 </template>

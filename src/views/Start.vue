@@ -1,5 +1,5 @@
 <template>
-<div class="quiz-start">
+<div class="quiz-start quiz-intro">
   <h1>{{quiz.title}}</h1>
 
   <div class="quiz-description col-7 col-sm-auto">
@@ -7,7 +7,10 @@
   </div>
 
   <div class="quiz-nav">
-    <button class="btn btn-primary btn-quiz-start" @click="$emit('start')">Start Quiz</button>
+    <button
+      class="btn btn-primary btn-quiz-start"
+      @click="$emit('start')">{{ $t('start_quiz') }}
+    </button>
   </div>
 </div>
 </template>

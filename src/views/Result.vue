@@ -1,14 +1,15 @@
 <template>
 <div class="quiz-result">
-  <h3>Result</h3>
+  <h3>{{ $t('quiz_result') }}</h3>
 
   <p>
-    Out of {{ this.questions.length }} Questions you answered {{ correctCount }} correctly.<br>
-    <strong>Score:</strong> {{ score }} %
+    {{ $t('questions_answered_correctly', {count: this.questions.length, correct: correctCount})}}
+    <br>
+    <strong>{{ $t('score') }}:</strong> {{ score }} %
   </p>
 
   <p class="small">
-    Click on the Question to learn more about the answers.
+    {{ $t('click_on_the_question_to_learn_more') }}
   </p>
 
   <div class="quiz-answers">

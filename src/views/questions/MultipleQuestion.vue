@@ -1,17 +1,17 @@
 <template>
 <div class="multiple-question quiz-answers">
   <div
-      v-for="(answer, index) in question.answers"
-      class="quiz-answer"
-      :key="answer.text"
-      :class="answers.includes(index) ? 'checked-option': 'option'"
-      :disabled="resolve"
+    v-for="(answer, index) in question.answers"
+    class="quiz-answer"
+    :key="answer.text"
+    :class="answers.includes(index) ? 'checked-option': 'option'"
+    :disabled="resolve"
   >
     <button
-        class="btn btn-action btn-answer"
-        :disabled="resolve"
-        @click="toggleAnswer(index)"
-        :class="getButtonClass(index)"
+      class="btn btn-action btn-answer"
+      :disabled="resolve"
+      @click="toggleAnswer(index)"
+      :class="getButtonClass(index)"
     >
       <span class="question-num">{{indexToLetter(index)}}.</span>
       {{ answer.content }}
@@ -23,7 +23,7 @@
   </div>
 
   <div class="nav-question text-right" v-show="!resolve">
-    <button class="btn btn-primary" @click="answer">Answer</button>
+    <button class="btn btn-primary" @click="answer">{{ $t('answer') }}</button>
   </div>
 </div>
 </template>

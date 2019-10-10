@@ -16,6 +16,7 @@ Simple Quiz app powered by Vue.js and Spectre.css.
 * Score based results
 * Suggest question form
 * Report question form
+* i18n support
 
 ### Quiz server
 

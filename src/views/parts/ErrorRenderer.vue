@@ -8,13 +8,13 @@
 
     <div v-if="typeof message == 'object'">
       <div v-if="message.response">
-        <h5>Api Error</h5>
+        <h5>{{ $t('error-renderer.api_error') }}</h5>
         {{message.response.status}} - {{message.response.statusText}}
         <br />
         {{message.response.data}}
         </div>
       <div v-else>
-        <h5>Error</h5>
+        <h5>{{ $t('error-renderer.error') }}</h5>
         {{message.message}}
       </div>
     </div>

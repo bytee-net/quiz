@@ -2,10 +2,10 @@
 <div class="single-question quiz-answers">
   <div v-for="(answer, index) in question.answers" class="quiz-answer" :key="answer.text">
     <button
-        class="btn btn-action btn-answer"
-        @click="sendAnswer([index])"
-        :class="getButtonClass(index)"
-        :disabled="resolve"
+      class="btn btn-action btn-answer"
+      @click="sendAnswer([index])"
+      :class="getButtonClass(index)"
+      :disabled="resolve"
     >
       <span class="question-num">{{indexToLetter(index)}}.</span>
       {{ answer.content }}

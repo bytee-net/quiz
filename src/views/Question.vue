@@ -3,13 +3,13 @@
   <div class="question-title text-center">
     <h3>{{ question.title }}</h3>
     <p class="text-italic" v-show="question.kind === 'single'">
-      Choose the most appropriate one.
+      {{ $t('choose_the_most_appropriate') }}
     </p>
     <p class="text-italic" v-show="question.kind === 'multiple'">
-      Choose all matching answers (zero to all).
+      {{ $t('choose_all_matching_answers') }}
     </p>
     <p class="text-italic" v-show="question.kind === 'text'">
-      Type in the answer.
+      {{ $t('type_in_the_answer') }}
     </p>
   </div>
 

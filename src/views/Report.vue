@@ -1,30 +1,30 @@
 <template>
 <div class="quiz-suggest">
-  <h3>Report a Question</h3>
+  <h3>{{ $t('report_question') }}</h3>
   <error-renderer :message="errorMessage" :severity="errorSeverity"
                   @close="errorMessage = ''"></error-renderer>
 
   <div class="toast toast-success thank-you-message" v-show="showThankYou">
-    Thank you for the report!
+    {{ $t('thank_you_for_the_report') }}
   </div>
 
   <div class="form-group">
-    <label for="email" class="form-label">Your Email</label>
+    <label for="email" class="form-label">{{ $t('your_email') }}</label>
     <input id="email" type="text"
            placeholder="test@example.com"
            class="form-input" v-model="report.email">
   </div>
 
   <div class="form-group">
-    <label for="comment" class="form-label">Comment</label>
-    <textarea id="comment" type="text" placeholder="Some notes"
+    <label for="comment" class="form-label">{{ $t('comment') }}</label>
+    <textarea id="comment" type="text" placeholder="What is wrong with the Question?"
               class="form-input" v-model="report.comment">
     </textarea>
   </div>
 
   <div class="quiz-nav">
-    <button class="btn btn-primary" @click="submit">Submit Report</button>
-    <router-link to="/" class="btn">Back to Quiz</router-link>
+    <button class="btn btn-primary" @click="submit">{{ $t('submit_report') }}</button>
+    <router-link to="/" class="btn">{{ $t('back_to_quiz') }}</router-link>
   </div>
 </div>
 </template>

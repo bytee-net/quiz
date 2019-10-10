@@ -1,5 +1,5 @@
 <template>
-<div id="app">
+<div id="quiz">
   <router-view/>
 </div>
 </template>
@@ -8,7 +8,7 @@
   @import './../node_modules/spectre.css/dist/spectre.min.css';
 
   /* Simple CSS for the Quiz */
-  #app {
+  #quiz {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -111,7 +111,7 @@
   /* Portrait and Landscape */
   @media only screen
   and (max-device-width: 812px) {
-    #app {
+    #quiz {
       border: 0;
       padding: 5px;
       margin: 0 auto;
