@@ -22,7 +22,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "core-js": "^2.6.9",
     "lodash": "^4.17.15",
     "spectre.css": "^0.5.8",
