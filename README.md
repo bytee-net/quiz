@@ -8,14 +8,14 @@ Simple Quiz app powered by Vue.js and Spectre.css.
 
 * Easy to use and fast integration into websites.
 * Single-Choice, Multiple-Choice and Fill-the-blank question support.
-* Simple JSON endpoints
-* Option to use JSON files, instead of an full blown API server.
-* Timer and Question counter
-* Randomize Questions and answers
+* Simple JSON files, no server needed.
+* Option to use a full-blown API [quiz server](https://github.com/bytee-net/quiz-server) with support for tracking & database storage.
+* Timer and question counter
+* Randomize questions and answers
 * Explanations for answers
 * Score based results
-* Suggest question form
-* Report question form
+* Suggest question form (With API)
+* Report question form (With API)
 * i18n support
 
 ### Quiz server
